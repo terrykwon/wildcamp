@@ -1,0 +1,13 @@
+.container-post-header {
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+}
+
+.container-post-header h4{
+	float: right;
+}
+
+h1, h2, h3, h4 {
+	display: inline;
+}
