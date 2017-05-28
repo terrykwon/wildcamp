@@ -2,7 +2,7 @@
   and (min-device-width: 768px)
   and (max-device-width: 1024px)
   and (-webkit-min-device-pixel-ratio: 1) {
-  .container{
+  .containerC{
     max-width: 768px;
   }
 
@@ -16,7 +16,7 @@
   and (max-device-width: 1024px)
   and (orientation: portrait)
   and (-webkit-min-device-pixel-ratio: 1) {
-    .container{
+    .containerC{
       max-width: 768px;
     }
     .CatPic{
@@ -30,13 +30,10 @@
   and (max-device-width: 1024px)
   and (orientation: landscape)
   and (-webkit-min-device-pixel-ratio: 1) {
-    .container{
+    .containerC{
       max-width: 768px;
     }
 
-    .CatPic{
-
-    }
 }
 
 * {
@@ -51,10 +48,6 @@ html {
   font-size : 15px;
 }
 
-
-
-
-
 .headerBar {
   width: 100%;
 	height: auto;
@@ -62,17 +55,27 @@ html {
 	position: relative;
 	background-color: rgba(244, 224, 249, 1);
 }
-.headerBar .container:after {
+.headerBar .containerC:after {
 	content: "";
 	clear: both;
 	display: table;
 }
 
 
+.jumbotron{
+  background-color: transparent!important;
+  margin-top: 20px;
+  margin-right: 40px!important;
+  margin-left: 40px!important;
+  padding-left: 10px!important;
+  padding-right: 10px!important;
+}
 
+.category{
+  text-align: left;
+}
 
-
-.container {
+.containerC {
 	width: 100%;
   min-width: 750px;
   padding-left: 0px;
@@ -81,9 +84,10 @@ html {
   margin-right: auto;
 }
 
-.container:first-child{
+.containerC:first-child{
   height: 90px;
   max-height: 90px;
+  padding-left: 0;
 }
 
 
@@ -96,7 +100,7 @@ html {
   height: 500px;
   /*윗 두놈은 div의 width와 height를 의미한다. 백그라운드 사이즈와는 별도다!!*/
   margin-top: 0px;
-  background-image: url("../image/backgroundpaw_lightblue2.png");
+  background-image: url("../images/animal-profile/backgroundpaw_lightblue2.png");
   background-position : center center;
   /*background-repeat : no-repeat;*/
   background-size: 50%;
@@ -106,35 +110,74 @@ html {
 }
 
 .CatPic{
+
   float: left;
-  margin-left: 30px;
-  margin-top: 20px;
-  width: 200px;
-  height: 300px;
-  background-image: url("../image/samplecat.jpeg");
+  margin: 20px auto;
+  /*margin-left: 30px;*/
+  /*margin-top: 20px;*/
+  /*width: 200px;
+  height: 300px;*/
+
   background-position: center center;
   background-repeat: no-repeat;
   background-color: rgb(66, 140, 244);
+  display: block;
+}
+
+.btn-primary{
+  background-color: rgb(66, 140, 244);
+}
+
+
+
+
+.img-responsive{
+  position: center;
+  padding: auto 0;
 }
 
 .CatProperties {
-  float: right;
+  float: left;
   width: 65%;
   height: 320px;
 }
 
 .CatSubProperties {
   margin-top: 20px;
+  margin : auto 0;
 }
+
+@media only screen
+  and (max-device-width: 500px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .CatSubProperties{
+      margin: auto 0;
+    }
+
+}
+
+.containerC2{
+  margin-left: 10px!important;
+  padding-left: 10px!important;
+  text-align: left!important;
+}
+
 .category:first-child{
 
 }
 
 .category {
-  display: inline-block;
+  display: block;
   margin-bottom: 20px;
 }
 
+p > h3 {
+  font: white;
+}
+
+h4{
+  color: white;
+}
 
 
 .logo a {
@@ -205,25 +248,27 @@ a {
 
 .content2 {
   width: 100%;
-  /*padding-top : 30px;*/
-  /*padding-bottom : 30px;*/
-    /*padding-left: auto;*/
-  /*padding-right: auto;*/
-  /*display: inline-block;*/
-  /*position: relative;*/
-  /*left: 25%;*/
-  background-color: rgba(244, 224, 249, 1);
+
+  background-image: url("./resources/images/backgroundpaw_lightblue2.png");
   height: 200px;
   position: relative;
 }
 
+.row2{
+  background-image: url("../images/animal-profile/backgroundpaw_lightblue2.png");
+  margin: 0 auto;
+}
+
+.thumbnail::after{
+
+}
 .optionsButton {
   list-style: none;
 }
 
 
 
-.container.optionsButton li {
+.containerC.optionsButton li {
   /*padding-left: 20px;*/
   /*padding-right: 20px;*/
   /*margin : 0 auto;*/
@@ -239,99 +284,9 @@ ul.optionsButton {
   margin : 0 auto;
 }
 
-p > h3 {
-  font: white;
-}
-
-h4{
-  color: white;
-}
-
-
-#windowed.container {
-  /*transform: translateX(10%);*/
-  text-align: center;
-  display: block;
-  position: relative;
-  min-width: 860px;
-  height: 337px;
-  /*background-image: url("../image/van/whitePanorama.png");*/
-  /*background-repeat: no-repeat;*/
-  /*background-size: auto;*/
-  background-color: rgba(253, 243, 226, 1);
-  background-image: url("../image/van/starrynightPanorama.png");
-  background-repeat: no-repeat;
-  background-position: center -50px;
-  background-size: 100%;
-
-  /*윈도우 패널들을 가운데로 정렬한다.*/
-  /*margin: 0 auto;*/
-}
-
-
-#windowed {
-  /*margin-left : auto;*/
-  /*margin-right : auto;*/
-}
-
-ul.optionsButton li {
-  float: left;
-  /*optionsButton들의 li들을 쭉 한줄로 정렬시킨다!!*/
-  margin-right: 3em;
-    /*li 로 된 테이블 사이에 마진이 있게한다!!*/
-  /**/
-
-}
-
-ul.optionsButton li:last-child {
-  margin-right: 0;
-}
-
-ul.optionsButton li:first-child {
-
-}
 
 
 
-.curtain {
-  float : left;
-}
-
-.curtain tr {
-  text-align : center;
-
-}
-
-.curtain td {
-  border : 2px solid white;
-  /*border-left : 0px;
-  border-top : 0px;
-  border-bottom: 0px;*/
-  text-align: center;
-}
-
-.curtain td:not(.Goh) {
-  width: 250px;
-  /*?? 적용안되늗늣*/
-}
-
-.curtain:last-child {
-  content:"";
-  clear: both;
-}
-
-
-.Goh {
-  padding-right: 0px;
-}
-
-
-.optionsButton:last-child::after{
-  content:"";
-  clear : both;
-  display : table;
-}
-/**************여기까지 Windowed*******************************/
 
 .Information {
   width: 100%;
@@ -380,13 +335,6 @@ h4 {
   padding-right: 15px;
 }
 
-
-.travelV {
-  margin: auto;
-  margin-top: 30px;
-  width: 400px;
-  height: 250px;
-}
 
 .footer {
   position: static;
