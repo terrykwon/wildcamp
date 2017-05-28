@@ -1,0 +1,393 @@
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+  .container{
+    max-width: 768px;
+  }
+
+  .CatPic{
+    margin : auto 0;
+  }
+}
+
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: portrait)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .container{
+      max-width: 768px;
+    }
+    .CatPic{
+
+    }
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px)
+  and (orientation: landscape)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    .container{
+      max-width: 768px;
+    }
+
+    .CatPic{
+
+    }
+}
+
+* {
+  padding: 0;
+  margin : 0;
+  -webkit-box-sizing : border-box;
+  -moz-box-sizing : border-box;
+  box-sizing : border-box;
+}
+
+html {
+  font-size : 15px;
+}
+
+
+
+
+
+.headerBar {
+  width: 100%;
+	height: auto;
+	z-index: 1;
+	position: relative;
+	background-color: rgba(244, 224, 249, 1);
+}
+.headerBar .container:after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+
+
+
+
+.container {
+	width: 100%;
+  min-width: 750px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right: auto;
+}
+
+.container:first-child{
+  height: 90px;
+  max-height: 90px;
+}
+
+
+
+.CatProfile {
+  width: 100%;
+  min-width: 100%;
+  /*min-width: 650px;*/
+  min-height: 300px;
+  height: 500px;
+  /*윗 두놈은 div의 width와 height를 의미한다. 백그라운드 사이즈와는 별도다!!*/
+  margin-top: 0px;
+  background-image: url("../image/backgroundpaw_lightblue2.png");
+  background-position : center center;
+  /*background-repeat : no-repeat;*/
+  background-size: 50%;
+  position : relative;
+
+
+}
+
+.CatPic{
+  float: left;
+  margin-left: 30px;
+  margin-top: 20px;
+  width: 200px;
+  height: 300px;
+  background-image: url("../image/samplecat.jpeg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: rgb(66, 140, 244);
+}
+
+.CatProperties {
+  float: right;
+  width: 65%;
+  height: 320px;
+}
+
+.CatSubProperties {
+  margin-top: 20px;
+}
+.category:first-child{
+
+}
+
+.category {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+
+
+.logo a {
+	display: inline-block;
+	width: 100%;
+}
+.logo a img {
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 10px;
+	height: 50px;
+  /*position: absolute;*/
+}
+
+.logo a img:after {
+  content: "";
+}
+
+ul.Menus {
+	margin-top: 2em;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 2em;
+	list-style: none;
+	float: right;
+  /*transform: translateX(50%);*/
+}
+
+ul.Menus li {
+	float: left;
+	padding-right: 3em;
+}
+
+ul.Menus:after {
+
+	content: "";
+	clear: both;
+  /*Menu에 적용된 float에 영향을 받지 않고 일반적인 레이아웃을 사용하게 하기 위함*/
+	display: table;
+}
+
+ul.Menus li:last-child {
+	padding-right: 5px;
+}
+
+ul.Menus li a {
+	font-size: 1.2rem;
+	color: #1a1a1a;
+	font-weight: bold;
+	line-height: 1;
+	width: 100%;
+}
+
+ul.Menus li a:hover {
+	border-bottom: 1px solid;
+}
+
+a {
+  text-decoration : none;
+
+}
+
+/*여기까지 AIDED*/
+
+.content {
+  padding : 70px 0;
+}
+
+.content2 {
+  width: 100%;
+  /*padding-top : 30px;*/
+  /*padding-bottom : 30px;*/
+    /*padding-left: auto;*/
+  /*padding-right: auto;*/
+  /*display: inline-block;*/
+  /*position: relative;*/
+  /*left: 25%;*/
+  background-color: rgba(244, 224, 249, 1);
+  height: 200px;
+  position: relative;
+}
+
+.optionsButton {
+  list-style: none;
+}
+
+
+
+.container.optionsButton li {
+  /*padding-left: 20px;*/
+  /*padding-right: 20px;*/
+  /*margin : 0 auto;*/
+}
+
+
+
+ul.optionsButton {
+  /*padding-left: auto;*/
+  text-align: center;
+  display: inline-block;
+  /*!!!!!!!!!!!!!!!!!!!! in*/
+  margin : 0 auto;
+}
+
+p > h3 {
+  font: white;
+}
+
+h4{
+  color: white;
+}
+
+
+#windowed.container {
+  /*transform: translateX(10%);*/
+  text-align: center;
+  display: block;
+  position: relative;
+  min-width: 860px;
+  height: 337px;
+  /*background-image: url("../image/van/whitePanorama.png");*/
+  /*background-repeat: no-repeat;*/
+  /*background-size: auto;*/
+  background-color: rgba(253, 243, 226, 1);
+  background-image: url("../image/van/starrynightPanorama.png");
+  background-repeat: no-repeat;
+  background-position: center -50px;
+  background-size: 100%;
+
+  /*윈도우 패널들을 가운데로 정렬한다.*/
+  /*margin: 0 auto;*/
+}
+
+
+#windowed {
+  /*margin-left : auto;*/
+  /*margin-right : auto;*/
+}
+
+ul.optionsButton li {
+  float: left;
+  /*optionsButton들의 li들을 쭉 한줄로 정렬시킨다!!*/
+  margin-right: 3em;
+    /*li 로 된 테이블 사이에 마진이 있게한다!!*/
+  /**/
+
+}
+
+ul.optionsButton li:last-child {
+  margin-right: 0;
+}
+
+ul.optionsButton li:first-child {
+
+}
+
+
+
+.curtain {
+  float : left;
+}
+
+.curtain tr {
+  text-align : center;
+
+}
+
+.curtain td {
+  border : 2px solid white;
+  /*border-left : 0px;
+  border-top : 0px;
+  border-bottom: 0px;*/
+  text-align: center;
+}
+
+.curtain td:not(.Goh) {
+  width: 250px;
+  /*?? 적용안되늗늣*/
+}
+
+.curtain:last-child {
+  content:"";
+  clear: both;
+}
+
+
+.Goh {
+  padding-right: 0px;
+}
+
+
+.optionsButton:last-child::after{
+  content:"";
+  clear : both;
+  display : table;
+}
+/**************여기까지 Windowed*******************************/
+
+.Information {
+  width: 100%;
+  height: 400px;
+  background-color: rgba(36, 55, 72, 1);
+  position: static;
+  top: -192px;
+  clear: both;
+}
+
+.explain {
+  float: right;
+  display: inline;
+  width: 30%;
+  height: 400px;
+  /*position: relative;*/
+}
+
+#GMapHolder {
+  width: 70%;
+  height: 400px;
+  float: left;
+  display: inline;
+  background-color: rgba(91, 155, 213, 1);
+  /*position: relative;*/
+}
+
+h2 {
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+}
+h4 {
+  color : lightgray;
+}
+
+.mainT{
+  padding-top: 20px;
+}
+
+.mainP{
+  margin-top: 90px;
+  margin-bottom: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+
+.travelV {
+  margin: auto;
+  margin-top: 30px;
+  width: 400px;
+  height: 250px;
+}
+
+.footer {
+  position: static;
+}
