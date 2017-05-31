@@ -1,31 +1,31 @@
 @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
 body {
-	background-color: #DFDFDF;
+	background-color: #F2F4F7;
 }
 
-h1, h2, h3, h4 {
+p, h1, h2, h3, h4, h5, h6, li {
 	font-family: "Nanum Gothic", sans-serif;
+	color: #757575;
 }
 
-p {
-	font-family: "Nanum Gothic", sans-serif;
+.container-card {
+	background-color: #ffffff;
+	/*border: 1px #bebebe solid;*/
+	padding: 12px;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-/*.container {
-	padding: 0px 0px 0px 0px;
-}*/
-
-.container.main {
-	background-color: #FFFFFF;
-	padding: 24px 15px 24px 15px;
+.new-item {
+	margin-top: 16px;
+	margin-bottom: 16px;
 }
 
-.container-post-header{
+.post-header {
 	height: 48px;
 }
 
-.container-post-header+* {
+.post-header+* {
 /*  	position: relative;
     top: 50%; 
     transform: translateY(-50%);
@@ -33,29 +33,110 @@ p {
     display: inline;
 }
 
-.container-post-header h3{
+/* Name */
+.post-header h3 {
 	display: inline;
-	font-size: 1.3em;
+	font-size: 1.1em;
+	color: #000000;
 }
 
-.container-post-header h4{
+/* Time */
+.post-header h4 {
 	margin: 0 0 0 0;
 	/*padding-top: 24.5px;*/
 	float: right;
 	font-size: 0.9em;
+	color: #bdbdbd;
 }
 
-.container-post-header img {
+.post-header img {
 	height: 40px;
 	width: 40px;
 	margin-right: 12px;
 }
 
+/* Description */
+.post-desc p {
+	color: #757575;
+}
+
+.post-footer {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.post-footer p {
+	display: inline-block;
+	float: right;
+}
+
+/* Title */
+.supplement h2 {
+	font-size: 1.2em;
+	font-weight: 700;
+	color: #41A86E;
+}
+
+/* Description of image recognition */
+.supplement h6 {
+	font-size: 0.8em;
+	line-height: 1.4em;
+	color: #bdbdbd;
+}
+
+.supplement .recog-result-desc {
+	padding: 6px 0px 6px 0px;
+}
+
+.supplement .recog-result-desc h5 {
+	color: #41A86E;
+	font-size: 1.1em;
+	text-align: center;
+}
+
+.supplement h3 {
+	font-size: 1em;
+	font-weight: 800;
+	color: #41A86E;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.supplement ol {
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 2px;
+	padding-bottom: 0px;
+	margin: 0px;
+	font-size: 1em;
+}
+
+.horizontal-divider {
+	height: 2px;
+	width: 100%;
+	background-color: #e0e0e0;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.less-padding {
+	padding: 0px 12px 0px 12px;
+}
+
 /* For desktop */
 @media (min-width: 768px) {
-	.container.main {
+	.container {
 		max-width: 768px;
-		background-color: #FFFFFF;
-		padding: 24px 36px 36px 24px;
+	}
+
+	.container-card {
+		/*background-color: #ffffff;*/
+		/*border: 1px #bebebe solid;*/
+		padding: 24px;
+		/*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+	}
+
+	.less-padding {
+		padding: 0px 6px 0px 6px;
 	}
 }
