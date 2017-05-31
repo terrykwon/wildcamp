@@ -6,7 +6,7 @@
     <meta name="description" content="animal profile" />
     <meta name="keywords" content="wildcamp wild camp animalprofile" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="shortcut icon" href="resources/images/animal-profile/wildcamplogo.png" type="resources/images/animal-profile/x-icon">
+    <link rel="shortcut icon" href="resources/images/animal-profile/wildcamplogo.png" />
     <link rel="stylesheet" href="resources/css/apstyle.css">
     <title>wildCamp 동물 프로필</title>
     <!--special character, &  -->
@@ -19,23 +19,19 @@
       text-align: center;
       /*background-color: rgba(253, 243, 226, 1);*/
       /*background-color: rgba(25, 56, 64, 1);*/
-      background-color: white;
+      background-color: lightgrey;
       /*background-color: black;*/
 
     }
     </style>
-
+    <link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <div class ="music" style ="display : none;">
-      <!--inline HTML 구현  -->
-      <audio  controls="controls" autoplay="true">
-        <source src="./Audio/1.mp3" type="audio/mp3" />
-      </audio>
-    </div>
+
     <header>
       <div class="headerBar">
-        <div class="container">
+
+        <div class="containerC">
           <!--h1 태그 사용! 실제로 들어가는 텍스트 내용은 없으나, functionality를 고려.  -->
           <h1 class="logo" style="float: left;"><a href="#"><img class="burger" src="resources/images/animal-profile/burger2.png" alt="burger" title="burger"  /></a></h1>
           <!--logo에 inline css 적용  -->
@@ -46,24 +42,59 @@
       <!-- end of headerBar` -->
     </header>
       <!--  -->
-      <div class="CatProfile">
-        <div class="CatPic"></div>
-        <div class="CatProperties">
-          <div class="CatSubProperties">
-            <span class="category"><h4>별명</h4></span>
-            <span class="category"><h4>종</h4></span>
-            <span class="category"><h4>인기도</h4></span>
-            <span class="category"></span>
-          </div>
+      <div class="row">
+        <div class="leftbox">
+          <div class=".CatPic">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail" style="margin-bottom: 10px;">
+                <img src="resources/images/cat-01.jpg" alt="catImage">
+                <div class="caption">
+                  <h3>별명</h3>
+                  <p>0</p>
+                  <p><a href="#" class="btn btn-primary" role="button">트래킹!</a> <a href="#" class="btn btn-default" role="button">인기도++</a></p>
+                </div>
+              </div>
+            </div>
         </div>
-      </div>
-      <!--  -->
-      <!--  -->
+    </div>
+          <div class="rightbox">
+            <div class="containerC2" style="margin-right: 10px;">
+            <div class="panel panel-success" style="margin-left: 10px; margin-top: 30px; margin-right: 10px;">
+              <div class="panel-heading">종</div>
+              <div class="panel-footer" style="text-align: center;">
+                <h6>Hello</h6>
+              </div>
+            </div>
+            <div class="panel panel-info" style="margin-left: 10px; margin-right: 10px;">
+              <div class="panel-heading">나이</div>
+              <div class="panel-footer" style="text-align: center;">
 
+              </div>
+            </div>
+            <div class="panel panel-danger" style="margin-left: 10px;margin-right: 10px;">
+              <div class="panel-heading">설명</div>
+              <div class="panel-footer" style="text-align: left; height: 100px;">
+
+              </div>
+            </div>
+          </div>
+          <!--  -->
+        </div>
+          <!-- end of rightbox-->
+          <div class="row" style="display: block;">
+
+          </div>
+          </div>
+
+      <!--  -->
+      <!--  -->
+      <div class="row2">
       <div class="content2">
 
-      </div> <!--end of content2-->
+        <h4>최근 게시물</h4>
 
+      </div> <!--end of content2-->
+    </div>
     <article class="ar">
     <div class="Information">
 
@@ -90,14 +121,8 @@
       <div class="explain">
         <div  class="mainT">
           <p>
-            <h3>최근 발견위치</h3>
+            <h3 id="recentL">최근 발견위치</h3>
           </p>
-        </div>
-
-        <div  class="mainP">
-        <p>
-          <h4></h4>
-        </p>
         </div>
       </div>
     </div>
