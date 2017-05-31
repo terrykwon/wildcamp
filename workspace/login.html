@@ -1,0 +1,128 @@
+<!doctype html>
+
+<html lang="en">
+    
+<head>
+    
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Logon</title>
+  
+<style>
+body{
+    background-image:url("cats.jpg");
+
+}
+.panel-login{
+    text-transform: uppercase;
+    background-color: #fff;
+    font-family: verdana;
+    position:relative;
+    border-radius: 3px;
+    max-width: 400px;
+    margin: 150px auto;
+    border: 1px solid #72e0a2;
+ }
+ 
+form{
+    padding:20px;
+    
+}
+
+.header{
+    text-align:center; 
+    font-size:35px;
+    color:#FFF; 
+    padding:25px; 
+    background-color:#41a86e;
+    
+}
+
+ .user{
+    background-color: #fff;
+    border-radius: 50%;
+    width: 100Px;
+    height: 100px;
+    position: absolute;
+    top: -60px;
+    left: 0;
+    right: 0;
+    margin: auto;
+     
+ }
+
+input[type=text], input[type=password]{
+    padding: 11px;
+    border-radius: 3px;
+    border: 1px solid #DDD;
+    width: 100%;
+    display: block;
+    margin: 15px 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 12px;
+    font-family: verdana;
+    
+}
+
+input[type=submit]{
+    padding: 10px 20px;
+    width:100%;
+    margin:auto;
+    border-radius: 2px;
+    color: #FFF;
+    font-weight: 600px;
+    border: 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: arial;
+    margin: 5px 0 0 0
+    
+}
+ 
+ .text{
+    margin-top: 25px;
+    display: block;
+ }
+
+#login{
+    background-color: #41a86e;
+    border-bottom: 3px solid #72e0a2;
+}
+
+#signup{
+    background-color: #3956CC;
+    border-bottom: 3px solid #97a6e5;
+}
+
+#password.hover{
+    color:#606060;
+}
+ 
+</style>
+
+</head>
+
+<body>
+<div class="panel-login">
+<div class="header">
+    <div class="user">
+        <img src="catlogo.png" width=100 alt="logo">
+    </div>
+        <span class="text">login</span>
+</div>
+<form method="POST" action="#" onsubmit="return chkID()">
+        <input type="text" id="id" name="id" class="ID" placeholder="ID" autofocus required />
+        <input type="password" id="pw" name="password" class="password" placeholder="password" required/>
+        <input type="submit" name="valider" class="valider" value="Log In" id="login" onclick="chk();"/>
+        <input type="submit" name="signup" class="valider" value="Sign up" id="signup"/>
+        <p href="/password" style="font-size:11px; color:#91908f" id="password">비밀번호를 잃어버리셨나요?</p>
+</form>
+</div>
+ 
+<script type="text/javascript" src="validation.js"></script> 
+ 
+</body>
+</html>

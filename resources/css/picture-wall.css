@@ -1,13 +1,61 @@
-.container-post-header {
-	padding-top: 20px;
-	padding-bottom: 20px;
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
 
-}
-
-.container-post-header h4{
-	float: right;
+body {
+	background-color: #DFDFDF;
 }
 
 h1, h2, h3, h4 {
+	font-family: "Nanum Gothic", sans-serif;
+}
+
+p {
+	font-family: "Nanum Gothic", sans-serif;
+}
+
+/*.container {
+	padding: 0px 0px 0px 0px;
+}*/
+
+.container.main {
+	background-color: #FFFFFF;
+	padding: 24px 15px 24px 15px;
+}
+
+.container-post-header{
+	height: 48px;
+}
+
+.container-post-header+* {
+/*  	position: relative;
+    top: 50%; 
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);*/
+    display: inline;
+}
+
+.container-post-header h3{
 	display: inline;
+	font-size: 1.3em;
+}
+
+.container-post-header h4{
+	margin: 0 0 0 0;
+	/*padding-top: 24.5px;*/
+	float: right;
+	font-size: 0.9em;
+}
+
+.container-post-header img {
+	height: 40px;
+	width: 40px;
+	margin-right: 12px;
+}
+
+/* For desktop */
+@media (min-width: 768px) {
+	.container.main {
+		max-width: 768px;
+		background-color: #FFFFFF;
+		padding: 24px 36px 36px 24px;
+	}
 }
