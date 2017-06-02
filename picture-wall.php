@@ -13,12 +13,30 @@
     <title>Photo Wall</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
     <!-- Custom styles for this template -->
-    <link href="resources/css/picture-wall.css" rel="stylesheet">
+    <link href="resources/css/picture-wall.css" rel="stylesheet" type="text/css">
 
 </head>
+
+<?php
+	$hostname = "localhost"; // Variables loosely typed
+	$username = "root"; // Default by XAMPP
+	$password = "";
+	$driverOptions = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+
+	// Column names for database
+	DEFINE('DB_USER_NAME', 'user_id');
+	DEFINE('DB_DESCRIPTION', 'description');
+	DEFINE('DB_PHOTO_URL', 'photo_url');
+	DEFINE('DB_DATETIME', 'datetime');
+	DEFINE('DB_LIKES', 'likes');
+
+	$db = new PDO('mysql:host=localhost;dbname=wild_camp;charset=utf8mb4', $username, $password, $driverOptions);
+	$stmt = $db->query('SELECT * FROM post');
+	$row1 = $stmt->fetch();
+?>
 
 <body>
 
@@ -28,17 +46,18 @@
 				<div class="container-card post">
 					<div class="post-header">
 						<img class="img-circle" src="resources/images/cat-01.jpg">
-						<h3 class>홍길동</h3>
-						<h4 class>04:06 PM</h4>
+						<h3 class><?php echo $row1[DB_USER_NAME];?></h3>
+						<h4 class><?php echo $row1[DB_DATETIME];?></h4>
 					</div>
 					<div class="post-desc">
-						<p> 오늘 아침에 발견한 고양이</p>
+						<p><?php echo $row1[DB_DESCRIPTION]; ?></p>
 					</div>
 					<div class="post-img">
-						<img class="img-responsive img-rounded" src="resources/images/cat-01.jpg">
+						<img class="img-responsive img-rounded" src=<?php echo $row1[DB_PHOTO_URL];?>>
+						<!-- <img class="img-responsive img_rounded" -->
 					</div>
 					<div class="post-footer">
-						<p>3 likes</p>
+						<p><?php echo $row1[DB_LIKES];?> likes</p>
 					</div>
 				</div>
 			</div>
