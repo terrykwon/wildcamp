@@ -21,6 +21,37 @@ p, h1, h2, h3, h4, h5, h6, li {
 	margin-bottom: 16px;
 }
 
+.upload {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.upload div {
+	display: inline-block;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.upload h2 {
+	font-size: 1.2em;
+	font-weight: 700;
+	color: #3956CC;
+	/*display: inline-block;*/
+	margin-bottom: 4px;
+}
+
+.upload #photo-icon {
+	/*align-self: flex-start;*/
+	height: 48px;
+	width: 48px;
+}
+
+.upload #upload-icon {
+	align-self: flex-end;
+}
+
 .post-header {
 	height: 48px;
 }
