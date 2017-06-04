@@ -26,6 +26,12 @@ p, h1, h2, h3, h4, h5, h6, li {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	height: 120px;
+}
+
+/* TODO */
+.upload a:hover h2{
+	text-decoration: none;
 }
 
 .upload div {
@@ -40,12 +46,17 @@ p, h1, h2, h3, h4, h5, h6, li {
 	color: #3956CC;
 	/*display: inline-block;*/
 	margin-bottom: 4px;
+	margin-top: 0px;
+}
+
+.upload p {
+	margin-bottom: 0px;
 }
 
 .upload #photo-icon {
 	/*align-self: flex-start;*/
-	height: 48px;
-	width: 48px;
+	height: 56px;
+	width: 56px;
 }
 
 .upload #upload-icon {

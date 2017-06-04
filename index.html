@@ -31,16 +31,21 @@
     <link href="resources/css/carousel.css" rel="stylesheet">
 
     <style>
+    body {
+      font-family: "Nanum Gothic", sans-serif;
+    }
+
      #but {
        background-color: #41A86E;
        border-color: #587F69;
      }
     </style>
   </head>
-<!-- NAVBAR
-================================================== -->
+
   <body>
-    <div class="navbar-wrapper">
+
+    <!-- NAVBAR ================================================== (시작)-->
+    <div class="navbar-wrapper" style="margin-top: 0px;">
       <div class="container">
 
         <nav class="navbar navbar-default navbar-static-top">
@@ -56,17 +61,14 @@
                 <img alt="Brand" src="resources/images/index/logo.png" style="width:70px">
               </a>
             </div>
-
+            <!-- ===========================(각 해당파트에 active 지정해주세요)-->
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li style="color=#4FCC86"><a href="picture-wall.html">뉴스피드</a></li>
-                <li class="active"><a href="animal-profile.html">Y생태계</a></li>
+                <li class="active" style="font-weight:bold"><a href="picture-wall.html">뉴스피드</a></li>
+                <li><a href="animal-profile.html">Y생태계</a></li>
                 <li><a href="mapApi.html">Y지도</a></li>
-                <!--<li style="font-weight:bold"><a href="#about">뉴스피드</a></li>
-                <li class="active"><a href="#">Y생태계</a></li>
-                <li><a href="#">Y지도</a></li>-->
                 <li><a href="animalencyclopedia.html">동물백과사전</a></li>
-                <li><a href="donate.html">기부</a></li>
+                <li><a href="donate.html">기부하기</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -83,7 +85,7 @@
 
       </div>
     </div>
-
+  <!-- NAVBAR ======================================================== (끝)-->
 
     <!-- Carousel================================================== -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -95,22 +97,23 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="resources/images/index/slide2.png" alt="First slide">
+          <img class="first-slide" src="resources/images/index/c51_edited.jpg" alt="First slide">
           <div class="container">
-            <div class="carousel-caption">
+            <div class="carousel-caption" style="text-shadow: 2px 2px #565656" >
+            <!-- <div class="carousel-caption" style="color:black; top: 170px;"> -->
               <h1>생생한 뉴스피드</h1>
               <p>지금 연세대학교 내 생태계에 대한 생생한 정보를 남과 공유해보세요!</p>
-              <p><a id="but" class="btn btn-lg btn-primary" href="#" role="button">바로가기</a></p>
+              <p><a id="but" class="btn btn-lg btn-primary" href="picture-wall.html" role="button">바로가기</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="resources/images/index/cat2.jpg" alt="Second slide">
+          <img class="second-slide" src="resources/images/index/c36_edited.jpg" alt="Second slide">
           <div class="container">
-            <div class="carousel-caption">
-              <h1>등록회원만을 위한 서비스</h1>
+            <div class="carousel-caption" style="text-shadow: 2px 2px #565656">
+              <h1>등록회원을 위한 서비스</h1>
               <p>회원가입 후, 동물들과 더 가까워질 수 있는 기회를 가져보세요!</p>
-              <p><a id="but" class="btn btn-lg btn-primary" href="#" role="button">가입하기</a></p>
+              <p><a id="but" class="btn btn-lg btn-primary" href="signup.html" role="button">가입하기</a></p>
             </div>
           </div>
         </div>
@@ -137,20 +140,20 @@
         <div class="col-lg-4">
           <img class="img-circle" src="resources/images/index/ycat.png" alt="Generic placeholder image" width="140" height="140">
           <h2 style="color:rgb(65,168,110)">Y생태계</h2>
-          <p>연세대학교 내에는 어떤 동물들이 있을까요? </br>동물들의 프로필, 다양한 사진, 사람들의 반응을 확인해보세요.</p>
-          <p><a class="btn btn-default" href="#" role="button">바로가기 &raquo;</a></p>
+          <p>연세대학교 내에는 어떤 동물들이 있을까요? </br>동물들의 프로필, 다양한 사진을 확인해보세요.</p>
+          <p><a class="btn btn-default" href="animal-profile.html" role="button">바로가기 &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img" src="resources/images/index/ymap.png" alt="Generic placeholder image" width="140" height="140">
+          <img class="img" src="resources/images/index/map.svg" alt="Generic placeholder image" width="140" height="140">
           <h2 style="color:rgb(57,86,204)">Y지도</h2>
           <p>"고양이 냥이가 주로 서식하는 지역은 어디일까요?"</br>동물들이 자주 출몰하는 지역을 확인해보세요.</p>
-          <p><a class="btn btn-default" href="#" role="button">바로가기 &raquo;</a></p>
+          <p><a class="btn btn-default" href="mapApi.html" role="button">바로가기 &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img" src="resources/images/index/encyclo.png" alt="Generic placeholder image" width="140" height="140" style="padding-top:5">
+          <img class="img" src="resources/images/index/encyclo.png" alt="Generic placeholder image" width="145" height="145" style="padding-top:5">
           <h2 style="color:rgb(65,168,110)">동물백과사전</h2>
-          <p>"고양이는 어느 계에 속하고, 어떤 먹이를 좋아할까요?" </br>동물백과사전을 통해 동물에 관한 모든 정보를 알아보세요.</p>
-          <p><a class="btn btn-default" href="#" role="button">바로가기 &raquo;</a></p>
+          <p>"고양이는 어느 계에 속하고, 어떤 먹이를 좋아할까요?" </br>동물에 관한 모든 정보를 알아보세요.</p>
+          <p><a class="btn btn-default" href="animalencylocpedia.html" role="button">바로가기 &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
@@ -185,7 +188,7 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">Y지도 <span class="text-muted" style="font-size: 30px">Map API 사용</span></h2>
+          <h2 class="featurette-heading">Y지도 <span class="text-muted" style="font-size: 30px">다음 Map API 사용</span></h2>
           <p class="lead">뉴스피드를 통해 올린 동물들의 위치를 이곳에서 한 눈에 확인할 수 있습니다. 각 동물(고양이, 청솔모)를 다른 아이콘을 이용해서 지도 위에 행적을 나타냅니다. 지도는 연세대학교와 그 근처로 한정됩니다.</p>
         </div>
         <div class="col-md-5">
@@ -210,12 +213,14 @@
       <!-- /END THE FEATURETTES -->
 
 
-      <!-- FOOTER -->
+      <!-- Footer ================================================== (시작)-->
       <footer>
         <p class="pull-right"><a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a></p>
-        <p>&copy; 2017 Team WILDCAMP &middot; <a href="#">사이트 약관</a> &middot; <a href="#">가입하기</a>
+        <p>&copy; 2017 Team WILDCAMP (13조) &middot; <a href="login.html">로그인</a> &middot; <a href="signup.html">가입하기</a>
         </br>본 사이트는 2017-1 인터넷 프로그래밍 팀 프로젝트의 일환으로 만들어졌습니다.</p>
       </footer>
+      <!-- Footer ================================================== (끝)-->
+
 
     </div><!-- /.container -->
 
