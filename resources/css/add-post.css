@@ -1,0 +1,38 @@
+
+h2 {
+	font-size: 2em;
+	font-weight: 400;
+	color: #000000;
+	text-align: center;
+	margin-top: 36px;
+	
+}
+
+label {
+	color: #9E9E9E;
+	font-weight: 400;
+}
+
+.horizontal-divider-2 {
+	background-color: #e0e0e0;
+	height: 1px;
+	width: 100%;
+	margin-top: 48px;
+	margin-bottom: 48px;
+}
+
+.btn-primary {
+	background-color: #41A86E;
+	border-color: #AED581;
+}
+
+.btn-primary:hover {
+	background-color: #2D754D;
+	border-color: #AED581;
+}
+
+p.help-block {
+	font-size: 0.8em;
+	margin-bottom: 8px;
+	margin-top: -2px;
+}
