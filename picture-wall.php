@@ -36,14 +36,14 @@
 	$driverOptions = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 
 	// Column names for database
-	DEFINE('DB_USER_NAME', 'user_id');
+	DEFINE('DB_USER_NAME', 'poster');
 	DEFINE('DB_DESCRIPTION', 'description');
-	DEFINE('DB_PHOTO_URL', 'photo_url');
-	DEFINE('DB_DATETIME', 'datetime');
-	DEFINE('DB_LIKES', 'likes');
+	DEFINE('DB_PHOTO_URL', 'photo_uri');
+	DEFINE('DB_DATETIME', 'date_stamp');
+	DEFINE('DB_LIKES', 'like_count');
 
-	$db = new PDO('mysql:host=localhost;dbname=wild_camp;charset=utf8mb4', $username, $password, $driverOptions);
-	$stmt = $db->query('SELECT * FROM post');
+	$db = new PDO('mysql:host=localhost;dbname=wildcamp;charset=utf8mb4', $username, $password, $driverOptions);
+	$stmt = $db->query('SELECT * FROM post ORDER BY post_id DESC');
 
 	$rows = $stmt->fetchAll();
 ?>
@@ -77,7 +77,7 @@
 		<!-- Posts -->
 
 		<?php
-			$row = $rows[1];
+			foreach($rows as $row)
 			include 'post.php';
 		?>
 

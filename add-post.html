@@ -2,30 +2,103 @@
 
 <html>
 <head>
- <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- <link rel="icon" href="../../favicon.ico"> -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- <link rel="icon" href="../../favicon.ico"> -->
 
-    <!-- Disable caching for dev -->
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-    <meta http-equiv="pragma" content="no-cache" />
+	<!-- Disable caching for dev -->
+	<meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+	<meta http-equiv="pragma" content="no-cache" />
 
-    <title>Add a post</title>
+	<title>Add a post</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<!-- Bootstrap core CSS -->
+	<link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-    <!-- Custom styles for this template -->
-    <link href="resources/css/picture-wall.css" rel="stylesheet" type="text/css">
+	<!-- Custom styles for this template -->
+	<link href="resources/css/picture-wall.css" rel="stylesheet" type="text/css">
+	<link href="resources/css/add-post.css" rel="stylesheet" type="text/css">
 
-<!--     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
+	<!--     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
+
+	<script type="text/javascript" defer>
+		// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+		if (navigator.geolocation) {
+
+		    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+		    navigator.geolocation.getCurrentPosition(function(position) {
+
+		        var lat = position.coords.latitude, // 위도
+		            lon = position.coords.longitude; // 경도
+
+		            x = document.getElementById('location');
+		            x.innerHTML = lat;
+		            x.value = lat + ", " + lon;
+		            
+		        });
+		    
+		} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+
+			var locPosition = new daum.maps.LatLng(37.565757, 126.938541),    
+			message = '위치를 확인할 수 없어요..:('
+
+		}
+	</script>
+
+	<script type="text/javascript">
+	    $(function() {
+	        var params = {
+	            // Request parameters
+	            "visualFeatures": "Categories,Description,Color",
+	            "details": "",
+	            "language": "en",
+	        };
+
+	        $.ajax({
+	            url: "https://southeastasia.api.cognitive.microsoft.com/vision/v1.0/analyze?" + $.param(params),
+
+	            beforeSend: function(xhrObj){
+	                // Request headers
+	                xhrObj.setRequestHeader("Content-Type","application/json");
+
+	                // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+	                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "5bcd5f1600194ff0b245ba42eb924a99");
+	            },
+
+	            type: "POST",
+
+	            // Request body
+	            data: '{"url": "<?php echo $row[DB_PHOTO_URL];?>"}',
+	        })
+
+	        .done(function(data) {
+	            // Show formatted JSON on webpage.
+	            $("#responseTextArea").val(JSON.stringify(data, null, 2));
+	            desc = data.description;
+	            // alert(desc.captions[0].text);
+	            $("#recog-desc").val(desc.captions[0].text);
+	            document.getElementById('recog-desc').innerHTML = "\"" + desc.captions[0].text + "\"";
+	            document.getElementById('recog-tag1').innerHTML = desc.tags[0];
+	            document.getElementById('recog-tag2').innerHTML = desc.tags[1];
+	            document.getElementById('recog-tag3').innerHTML = desc.tags[2];
+
+	        })
+
+	        .fail(function(jqXHR, textStatus, errorThrown) {
+	            // Display error message.
+	            var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+	            errorString += (jqXHR.responseText === "") ? "" : jQuery.parseJSON(jqXHR.responseText).message;
+	            alert(errorString);
+	        });
+	    });
+	</script>
 
 </head>
 
@@ -35,46 +108,76 @@
 
 		<!-- Upload photo -->
 		<div class="row new-item">
-			<div class="col-sm-12 less-padding">
+			<div class="col-sm-8 less-padding">
 				<div class="container-card">
 					<h2>사진 올리기</h2>
-					<p id="demo">what what </p>
+
+					<div class="horizontal-divider-2"></div>
 
 					<form action="add-post.php" method="post" enctype="multipart/form-data">
 
 						<div class="form-group">
-						  <label>사진 선택</label>
-						  <input type="file" class="form-control-file" name="photo" id="inputPhoto" accept="image/*;capture=camera">
+							<label>사진 선택</label>
+							<input type="file" class="form-control-file" name="photo" id="photo" accept="image/*;capture=camera">
 						</div>
 
-					  <div class="form-group">
-					    <label>글 추가하기</label>
-					    <textarea class="form-control" name="description" id="inputDescription" rows="3"></textarea>
-					  </div>
-					  
-					 
-					  <button type="submit" class="btn btn-primary">Submit</button>
+						<div class="form-group">
+							<label>동물 종류</label>
+							<input type="text" class="form-control" name="species" id="species">
+						</div>
+
+						<div class="form-group">
+							<label>동물 이름</label>
+							<p class="help-block">(이름이 알려진 <b>고양이</b> 경우에만 입력)</p>
+							<input type="text" class="form-control" name="animal_id" id="animal_id">
+						</div>
+
+						<div class="form-group">
+							<label>위치(자동)</label>
+							<input type="text" class="form-control" id="location" name="location" readonly="true" placeholder="위치 추적중...">
+						</div>
+
+						<div class="form-group">
+							<label>글 추가하기</label>
+							<textarea class="form-control" name="description" id="description" rows="3"></textarea>
+						</div>	
+
+						<div class="text-right">
+							<button type="reset" class="btn btn-default">취소</button>
+							<button type="submit" class="btn btn-primary">올리기</button>
+						</div>
+						
 					</form>
 				</div>
 			</div>
+
+			<div class="col-sm-4 less-padding">
+				<div class="container-card supplement">
+					<h2>인공지능 사진 인식</h2>
+					<div class="horizontal-divider"></div>
+					<h6>비슷한 사진들을 기반으로 이 사진의 내용을 추출한 결과입니다.</h6>
+					<div class="recog-result-desc">
+						<h5 id="recog-desc"></h5>
+					</div>
+					<h3>Tags</h3>
+					<div class="horizontal-divider"></div>
+					<ol>
+						<li id="recog-tag1"></li>
+						<li id="recog-tag2"></li>
+						<li id="recog-tag3"></li>
+					</ol>
+				</div>
+			</div>
+
+		<!-- row -->
 		</div>
 
+	<!-- container -->
 	</div>
-
-	<script type="text/javascript">
-		var x = document.getElementById("demo");
-		function getLocation() {
-		    if (navigator.geolocation) {
-		        navigator.geolocation.getCurrentPosition(showPosition);
-		    } else {
-		        x.innerHTML = "Geolocation is not supported by this browser.";
-		    }
-		}
-		function showPosition(position) {
-		    x.innerHTML = "Latitude: " + position.coords.latitude + 
-		    "<br>Longitude: " + position.coords.longitude; 
-		}
-	</script>
 </body>
+
+
 </html>
+
+
 
