@@ -21,7 +21,7 @@
 	</div>
 
 	<div class="col-sm-4 less-padding">
-		<div class="container-card supplement">
+		<div class="container-card supplement" id="ai-<?php echo $row['post_id'];?>">
 			<h2>인공지능 사진 인식</h2>
 			<div class="horizontal-divider"></div>
 			<h6>비슷한 사진들을 기반으로 이 사진의 내용을 추출한 결과입니다.</h6>
@@ -39,7 +39,7 @@
 	</div>
 </div>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     $(function() {
         var params = {
             // Request parameters
@@ -62,19 +62,17 @@
             type: "POST",
 
             // Request body
-            data: '{"url": "<?php echo $row[DB_PHOTO_URL];?>"}',
+            // data: '{"url": "<?php echo $row[DB_PHOTO_URL];?>"}',
+            data: '{"url": "http://moonpark.biz/wildcamp/<?php echo $row[DB_PHOTO_URL];?>"}',
         })
 
         .done(function(data) {
             // Show formatted JSON on webpage.
-            $("#responseTextArea").val(JSON.stringify(data, null, 2));
             desc = data.description;
-            // alert(desc.captions[0].text);
-            $("#recog-desc").val(desc.captions[0].text);
-            document.getElementById('recog-desc').innerHTML = "\"" + desc.captions[0].text + "\"";
-            document.getElementById('recog-tag1').innerHTML = desc.tags[0];
-            document.getElementById('recog-tag2').innerHTML = desc.tags[1];
-            document.getElementById('recog-tag3').innerHTML = desc.tags[2];
+            $('#ai-<?php echo $row['post_id'];?>').find('#recog-desc').html("\"" + desc.captions[0].text + "\"");
+            $('#ai-<?php echo $row['post_id'];?>').find('#recog-tag1').html(desc.tags[0]);
+            $('#ai-<?php echo $row['post_id'];?>').find('#recog-tag2').html(desc.tags[1]);
+            $('#ai-<?php echo $row['post_id'];?>').find('#recog-tag3').html(desc.tags[2]);
 
         })
 
@@ -85,4 +83,4 @@
             alert(errorString);
         });
     });
-</script> -->
+</script>
