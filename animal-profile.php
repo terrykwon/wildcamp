@@ -64,7 +64,12 @@
       // $_POST["AID"] = 1;   /// 실제로 올릴때는 이 부분 주석처리 할것!
       //**********************************************//
       // $AID = $_POST["AID"];
-      $AID = $_GET['AID'];
+      if (!empty($_GET)) {
+        $AID = $_GET['AID'];
+      } else {
+        $AID = 1;
+      }
+      
       $sql = "SELECT * FROM ANIMAL where AID= $AID";
       $stmt = $db->query($sql);
       $result = $stmt->fetch();   // 하나의 행만 가져온다. AID는 고유값이므로 무방.
