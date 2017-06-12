@@ -1,4 +1,15 @@
 <?php
+    // Check login
+    session_start();
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+
+    } else {
+        echo "<script>
+        alert('사진 업로드를 하시려면 로그인이 필요합니다.');
+        window.location.href='login.html';
+        </script>";
+    }
+
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["photo"]["name"]);
     $uploadOk = 1;

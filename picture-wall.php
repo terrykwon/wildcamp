@@ -30,6 +30,17 @@
 </head>
 
 <?php
+  // Check login
+  session_start();
+  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+
+  } else {
+      echo "<script>
+      alert('뉴스피드를 보시려면 로그인이 필요합니다.');
+      window.location.href='login.html';
+      </script>";
+  }
+
 	$hostname = "www.moonpark.biz"; // Variables loosely typed
 	$username = "wildcamp"; // Default by XAMPP
 	$password = "Wildcamp1234!";
