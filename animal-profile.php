@@ -85,47 +85,49 @@
      ?>
 
 
+       <!-- NAVBAR ================================================== (시작)-->
+       <!--<div class="navbar-wrapper" style="margin-top: 0px;">
+         <div class="container" style="padding: 0px; width: 100%;">-->
 
-    <div class="navbar-wrapper" style="margin-top: 0px;">
-      <div class="container">
+       <div class="navbar-wrapper" >
+         <div class="container">
 
-        <nav class="navbar navbar-default navbar-static-top">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="./index.html">
-                <img alt="Brand" src="resources/images/index/logo.png" style="width:70px">
-              </a>
-            </div>
-            <!-- ===========================(각 해당파트에 active 지정해주세요)-->
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li style="font-weight:bold"><a href="picture-wall.php">뉴스피드</a></li>
-                <li class="active"><a href="animal-profile.php">Y생태계</a></li>
-                <li><a href="mapChat.html">Y지도</a></li>
-                <li><a href="animalencyclopedia.html">동물백과사전</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> 회원서비스</a>
-                  <ul class="dropdown-menu">
-                    <li><a href="login.html">로그인</a></li>
-                    <li><a href="signup.html">회원가입</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+           <nav class="navbar navbar-default navbar-static-top"  style="max-width: 100%">
+             <div class="container-fluid">
+               <div class="navbar-header">
+                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                   <span class="sr-only">Toggle navigation</span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                 </button>
+                 <a class="navbar-brand" href="index.html" style="padding-top: 10px;">
+                   <img alt="Brand" src="resources/images/index/logo.png" style="width:70px">
+                 </a>
+               </div>
+               <!-- ===========================(각 해당파트에 active 지정해주세요)-->
+               <div id="navbar" class="navbar-collapse collapse">
+                 <ul class="nav navbar-nav">
+                   <li style="font-weight:bold"><a href="picture-wall.php">뉴스피드</a></li>
+                   <li class="active"><a href="animal-profile.php">Y생태계</a></li>
+                   <li><a href="mapChat.html">Y지도</a></li>
+                 </ul>
+                 <ul class="nav navbar-nav navbar-right">
+                   <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> 회원서비스</a>
+                     <ul class="dropdown-menu">
+                       <li><a href="login.html">로그인</a></li>
+                       <li><a href="signup.html">회원가입</a></li>
+                     </ul>
+                   </li>
+                 </ul>
+               </div>
+             </div>
+           </nav>
 
-      </div>
-    </div>
-  <!-- NAVBAR ======================================================== (끝)-->
+         </div>
+       </div>
+     <!-- NAVBAR ======================================================== (끝)-->
 
     <header>
       <div class="headerBar">
@@ -513,5 +515,14 @@
 
   			</div>
   		</div>
+
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+      <script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+      <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
   </body>
 </html>
