@@ -31,15 +31,15 @@
 
 <?php
   // Check login
-  session_start();
-  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+  // session_start();
+  // if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 
-  } else {
-      echo "<script>
-      alert('뉴스피드를 보시려면 로그인이 필요합니다.');
-      window.location.href='login.html';
-      </script>";
-  }
+  // } else {
+  //     echo "<script>
+  //     alert('뉴스피드를 보시려면 로그인이 필요합니다.');
+  //     window.location.href='login.html';
+  //     </script>";
+  // }
 
 	$hostname = "www.moonpark.biz"; // Variables loosely typed
 	$username = "wildcamp"; // Default by XAMPP
@@ -60,9 +60,7 @@
 ?>
 
 <script type="text/javascript">
-    document.getElementById("upload").onclick = function () {
-        location.href = "http://www.moonpark.biz/wildcamp/add-post.html";
-    };
+
 </script>
 
 <body>

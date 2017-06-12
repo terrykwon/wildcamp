@@ -61,9 +61,10 @@
 ////////////////////////////////////아래의 localhost를 www.moonpark.biz로 변경
     	$db = new PDO('mysql:host=www.moonpark.biz;dbname=wildcamp;charset=utf8mb4', $username, $password, $driverOptions);
       ///*******************************
-      $_POST["AID"] = 1;   /// 실제로 올릴때는 이 부분 주석처리 할것!
+      // $_POST["AID"] = 1;   /// 실제로 올릴때는 이 부분 주석처리 할것!
       //**********************************************//
-      $AID = $_POST["AID"];
+      // $AID = $_POST["AID"];
+      $AID = $_GET['AID'];
       $sql = "SELECT * FROM ANIMAL where AID= $AID";
       $stmt = $db->query($sql);
       $result = $stmt->fetch();   // 하나의 행만 가져온다. AID는 고유값이므로 무방.
