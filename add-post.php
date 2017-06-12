@@ -46,15 +46,15 @@
     $species = $_POST["species"];
     $animal_id =  $_POST["animal_id"];
 
-    $loc = explode(',', $_POST["location"]); 
+    $loc = explode(',', $_POST["location"]);
     $lat = $loc[0];
     $lon = $loc[1];
 ?>
 
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $servername = "www.moonpark.biz";
+    $username = "wildcamp";
+    $password = "Wildcamp1234!";
     $dbname = "wildcamp";
 
     try {
@@ -72,7 +72,7 @@
 
         echo "New record created successfully";
 
-        header("Location: http://localhost/wildcamp/picture-wall.php");
+        header("Location: http://$servername/wildcamp/picture-wall.php");
 
         }
     catch(PDOException $e)

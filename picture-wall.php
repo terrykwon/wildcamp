@@ -30,9 +30,9 @@
 </head>
 
 <?php
-	$hostname = "localhost"; // Variables loosely typed
-	$username = "root"; // Default by XAMPP
-	$password = "";
+	$hostname = "www.moonpark.biz"; // Variables loosely typed
+	$username = "wildcamp"; // Default by XAMPP
+	$password = "Wildcamp1234!";
 	$driverOptions = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 
 	// Column names for database
@@ -42,15 +42,15 @@
 	DEFINE('DB_DATETIME', 'date_stamp');
 	DEFINE('DB_LIKES', 'like_count');
 
-	$db = new PDO('mysql:host=localhost;dbname=wildcamp;charset=utf8mb4', $username, $password, $driverOptions);
-	$stmt = $db->query('SELECT * FROM post ORDER BY post_id DESC');
+	$db = new PDO('mysql:host=www.moonpark.biz;dbname=wildcamp;charset=utf8mb4', $username, $password, $driverOptions);
+	$stmt = $db->query('SELECT * FROM POST ORDER BY post_id DESC');
 
 	$rows = $stmt->fetchAll();
 ?>
 
 <script type="text/javascript">
     document.getElementById("upload").onclick = function () {
-        location.href = "http://localhost/wildcamp/add-post.html";
+        location.href = "http://www.moonpark.biz/wildcamp/add-post.html";
     };
 </script>
 

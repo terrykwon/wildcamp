@@ -2,303 +2,402 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>연세대학교 생태 지도</title>
+    <link rel="icon" href="resources/images/index/icon.png">
+    <title>Y지도</title>
+    <link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/css/carousel.css" rel="stylesheet">
     <style>
+    @import url(http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb);
+    body {
+      font-family: 'NanumGothic', '나눔고딕','NanumGothicWeb', '맑은 고딕', 'Malgun Gothic', san-serif;
+    }
     #mapwrap{position:relative;overflow:hidden;}
-    .category, .category *{margin:0;padding:0;color:#000;}   
+    .category, .category *{margin:0;padding:0;color:#000;}
     .category {position:absolute;overflow:hidden;top:10px;left:10px;width:300px;height:120px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:30px;text-align:center;background-color:#fff;}
     .category .menu_selected {background:#2D754D
-    ;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;} 
-    .category li{list-style:none;float:left;width:100px;height:100px;padding-top:30px;cursor:pointer;} 
-    .category .ico_comm {display:block;margin:0 auto 2px;width:50px;height:50px;background:url('resources\\images\\mapChat\\category3.png') no-repeat;} 
-    .category .ico_coffee {background-position:-20px 0;}  
-    .category .ico_store {background-position:-20px -72px;}   
-    .category .ico_carpark {background-position:-20px -144px;} 
+    ;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
+    .category li{list-style:none;float:left;width:100px;height:120px;padding-top:10px;cursor:pointer;}
+    .category .ico_comm {display:block;margin:0 auto 2px;width:50px;height:50px;background:url('resources\\images\\mapChat\\category.png') no-repeat;}
+    .category .ico_coffee {background-position:-20px 0;}
+    .category .ico_store {background-position:-20px -72px;}
+    .category .ico_carpark {background-position:-20px -144px;}
+
+     #wrapper{
+         max-width:1000px;
+         width:100%;
+         margin:auto;
+     }
+    form{
+        padding:20px;
+
+    }
+
+    .header{
+        margin:30px auto;
+        text-align:center;
+        font-size:30px;
+        width:50%;
+        color:#FFF;
+        padding:10px;
+        background-color:#41a86e;
+
+    }
+
+     .user{
+        background-color: #fff;
+        border-radius: 50%;
+        width: 100Px;
+        height: 100px;
+        position: absolute;
+        top: -60px;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+     }
+
     </style>
 </head>
 <body>
-    <!-- 내비게이션 모바일용이니 웹으로는 default로 바꿀 것-->
-<div id="mapwrap"> 
-    <!-- 지도가 표시될 div -->
-    <div id="map" style="width:100%;height:1200px;"></div>
-    <!-- 지도 위에 표시될 마커 카테고리 -->
-    <div class="category">
-        <ul>
-            <li id="coffeeMenu" onclick="changeMarker('coffee')">
-                <span class="ico_comm ico_coffee"></span>
-                고양이
-            </li>
-            <li id="storeMenu" onclick="changeMarker('store')">
-                <span class="ico_comm ico_store"></span>
-                다람쥐
-            </li>
-            <li id="carparkMenu" onclick="changeMarker('carpark')">
-                <span class="ico_comm ico_carpark"></span>
-                까치
-            </li>
-        </ul>
+
+  <!-- NAVBAR ================================================== (시작)-->
+  <!--<div class="navbar-wrapper" style="margin-top: 0px;">
+    <div class="container" style="padding: 0px; width: 100%;">-->
+
+  <div class="navbar-wrapper" >
+    <div class="container">
+
+      <nav class="navbar navbar-default navbar-static-top"  style="max-width: 100%">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html" style="padding-top: 10px;">
+              <img alt="Brand" src="resources/images/index/logo.png" style="width:70px">
+            </a>
+          </div>
+          <!-- ===========================(각 해당파트에 active 지정해주세요)-->
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li style="font-weight:bold"><a href="picture-wall.php">뉴스피드</a></li>
+              <li><a href="animal-profile.php">Y생태계</a></li>
+              <li class="active"><a href="mapChat.html">Y지도</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> 회원서비스</a>
+                <ul class="dropdown-menu">
+                  <li><a href="login.html">로그인</a></li>
+                  <li><a href="signup.html">회원가입</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
     </div>
+  </div>
+<!-- NAVBAR ======================================================== (끝)-->
+
+<div class="container marketing">
+
+        <div class="panel-login" style="margin-top: 100px;">
+        <div class="header">
+                <span class="text">연세대학교 지도</span>
+        </div>
+        </div>
+
+    <div id="wrapper">
+        <!-- 내비게이션 모바일용이니 웹으로는 default로 바꿀 것-->
+    <div id="mapwrap">
+        <!-- 지도가 표시될 div -->
+        <div id="map" style="width:100%;height:600px;"></div>
+        <!-- 지도 위에 표시될 마커 카테고리 -->
+        <div class="category">
+            <ul>
+                <li id="catMenu" onclick="changeMarker('cat')">
+                    <span class="ico_comm ico_coffee"></span>
+                    고양이
+                </li>
+                <li id="chipmunkMenu" onclick="changeMarker('store')">
+                    <span class="ico_comm ico_store"></span>
+                    다람쥐
+                </li>
+                <li id="magpieMenu" onclick="changeMarker('carpark')">
+                    <span class="ico_comm ico_carpark"></span>
+                    까치
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=e53398c3abe7918dcc46537d6a06ce49"></script>
+    <script>
+    var mapContainer = document.getElementById('map'),
+    mapOption = {
+            center: new daum.maps.LatLng(37.563799, 126.937749),
+            level: 2
+        };
+
+    var map = new daum.maps.Map(mapContainer, mapOption);
+
+    var catPositions = [
+        new daum.maps.LatLng(37.563328,126.93892600000004),
+        new daum.maps.LatLng(37.563429, 126.938021),
+        new daum.maps.LatLng(37.563351, 126.937682),
+        new daum.maps.LatLng(37.5645708, 126.9380347),
+        new daum.maps.LatLng(37.566133, 126.937195),
+        new daum.maps.LatLng(37.49629291770947, 127.02587362608637),
+        new daum.maps.LatLng(37.49754540521486, 127.02546694890695)
+    ];
+
+    var chipmunkPositions = [
+        new daum.maps.LatLng(37.497535461505684, 127.02948149502778),
+        new daum.maps.LatLng(37.49671536281186, 127.03020491448352),
+        new daum.maps.LatLng(37.496201943633714, 127.02959405469642),
+        new daum.maps.LatLng(37.49640072567703, 127.02726459882308),
+        new daum.maps.LatLng(37.49640098874988, 127.02609983175294),
+        new daum.maps.LatLng(37.49932849491523, 127.02935780247945),
+        new daum.maps.LatLng(37.49996818951873, 127.02943721562295)
+    ];
+
+  var magpiePositions = [
+        new daum.maps.LatLng(37.49966168796031, 127.03007039430118),
+        new daum.maps.LatLng(37.499463762912974, 127.0288828824399),
+        new daum.maps.LatLng(37.49896834100913, 127.02833986892401),
+        new daum.maps.LatLng(37.49893267508434, 127.02673400572665),
+        new daum.maps.LatLng(37.49872543597439, 127.02676785815386),
+        new daum.maps.LatLng(37.49813096097184, 127.02591949495914),
+        new daum.maps.LatLng(37.497680616783086, 127.02518427952202)
+    ];
+
+    var markerImageSrc = 'resources\\images\\mapChat\\category.png';
+        catMarkers = [],
+        chipmunkMarkers = [],
+        magpieMarkers = [];
+
+
+    createcatMarkers();
+    createchipmunkMarkers();
+    createmagpieMarkers();
+
+    // changeMarker('cat');
+
+
+
+    function createMarkerImage(src, size, options) {
+        var markerImage = new daum.maps.MarkerImage(src, size, options);
+        return markerImage;
+    }
+
+
+    function createMarker(position, image) {
+        var marker = new daum.maps.Marker({
+            position: position,
+            image: image
+        });
+
+        return marker;
+    }
+
+    function createcatMarkers() {
+
+        for (var i = 0; i < catPositions.length; i++) {
+
+            var imageSize = new daum.maps.Size(22, 26),
+                imageOptions = {
+                    spriteOrigin: new daum.maps.Point(10, 0),
+                    spriteSize: new daum.maps.Size(36, 98)
+                };
+
+
+            var markerImage = createMarkerImage(markerImageSrc, imageSize, imageOptions),
+                marker = createMarker(catPositions[i], markerImage);
+
+            catMarkers.push(marker);
+        }
+    }
+
+
+    function setcatMarkers(map) {
+        for (var i = 0; i < catMarkers.length; i++) {
+            catMarkers[i].setMap(map);
+        }
+    }
+
+
+    function createchipmunkMarkers() {
+        for (var i = 0; i < chipmunkPositions.length; i++) {
+
+            var imageSize = new daum.maps.Size(22, 26),
+                imageOptions = {
+                    spriteOrigin: new daum.maps.Point(10, 36),
+                    spriteSize: new daum.maps.Size(38, 98)
+                };
+
+
+            var markerImage = createMarkerImage(markerImageSrc, imageSize, imageOptions),
+                marker = createMarker(chipmunkPositions[i], markerImage);
+
+
+            chipmunkMarkers.push(marker);
+        }
+    }
+
+
+    function setchipmunkMarkers(map) {
+        for (var i = 0; i < chipmunkMarkers.length; i++) {
+            chipmunkMarkers[i].setMap(map);
+        }
+    }
+
+
+    function createmagpieMarkers() {
+        for (var i = 0; i < magpiePositions.length; i++) {
+
+            var imageSize = new daum.maps.Size(22, 26),
+                imageOptions = {
+                    spriteOrigin: new daum.maps.Point(10, 72),
+                    spriteSize: new daum.maps.Size(36, 98)
+                };
+
+
+            var markerImage = createMarkerImage(markerImageSrc, imageSize, imageOptions),
+                marker = createMarker(magpiePositions[i], markerImage);
+
+
+            magpieMarkers.push(marker);
+        }
+    }
+
+    function setmagpieMarkers(map) {
+        for (var i = 0; i < magpieMarkers.length; i++) {
+            magpieMarkers[i].setMap(map);
+        }
+    }
+
+    function changeMarker(type){
+
+        var catMenu = document.getElementById('catMenu');
+        var chipmunkMenu = document.getElementById('chipmunkMenu');
+        var magpieMenu = document.getElementById('magpieMenu');
+
+
+        if (type === 'cat') {
+
+
+            catMenu.className = 'menu_selected';
+
+
+            chipmunkMenu.className = '';
+            magpieMenu.className = '';
+
+            setcatMarkers(map);
+            setchipmunkMarkers(null);
+            setmagpieMarkers(null);
+
+        } else if (type === 'store') {
+
+            catMenu.className = '';
+            chipmunkMenu.className = 'menu_selected';
+            magpieMenu.className = '';
+
+            setcatMarkers(null);
+            setchipmunkMarkers(map);
+            setmagpieMarkers(null);
+
+        } else if (type === 'carpark') {
+
+
+            catMenu.className = '';
+            chipmunkMenu.className = '';
+            magpieMenu.className = 'menu_selected';
+
+            setcatMarkers(null);
+            setchipmunkMarkers(null);
+            setmagpieMarkers(map);
+        }
+    }
+
+    // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
+    if (navigator.geolocation) {
+
+        navigator.geolocation.getCurrentPosition(function(position) {
+
+            var lat = position.coords.latitude,
+                lon = position.coords.longitude;
+
+
+            var locPosition = new daum.maps.LatLng(lat, lon),
+                message = '<div style="padding:5px;">나는 지금 여기!</div>';
+            displayMarker(locPosition, message);
+
+          });
+
+    } else {
+
+        var locPosition = new daum.maps.LatLng(37.565757, 126.938541),
+            message = '위치를 확인할 수 없어요..:('
+
+        displayMarker(locPosition, message);
+    }
+
+    function displayMarker(locPosition, message) {
+
+
+        var marker = new daum.maps.Marker({
+            map: map,
+            position: locPosition
+        });
+
+        var iwContent = message,
+            iwRemoveable = true;
+
+
+        var infowindow = new daum.maps.InfoWindow({
+            content : iwContent,
+            removable : iwRemoveable
+        });
+
+
+        infowindow.open(map, marker);
+
+
+    }
+    </script>
+    <br>
+    <br>
+    <div id="sb_chat"></div></div>
+            <script src="vendors\SendBird.min.js"></script>
+            <script src="vendors\liveChat.SendBird.js"></script>
+            <script>liveChat.start('9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23');</script>
+            <script src="vendors\SendBird.min.js"></script>
+    <script>
+      var appId = '9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23';
+      var channelUrl = 'sendbird_open_channel_1_5b0336cc55abf6d3464e1d2a263a8e343d3b2b42'; // channel: text_chat_test
+      liveChat.start(appId, channelUrl);
+    </script>
+
+
+
+  <!-- Footer ================================================== (시작)-->
+  <hr class="featurette-divider">
+
+  <footer>
+    <p class="pull-right"><a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a></p>
+    <p>&copy; 2017 Team WILDCAMP (13조) &middot; <a href="login.html">로그인</a> &middot; <a href="signup.html">가입하기</a>
+    </br>본 사이트는 2017-1 인터넷 프로그래밍 팀 프로젝트의 일환으로 만들어졌습니다.
+    </br>본 사이트의 고양이 사진은 페이스북 연양심 페이지에서 가져왔습니다.</p>
+
+  </footer>
+  <!-- Footer ================================================== (끝)-->
+
 </div>
 
-<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=e53398c3abe7918dcc46537d6a06ce49"></script>
-<script>
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-    mapOption = { 
-        center: new daum.maps.LatLng(37.563799, 126.937749), // 지도의 중심좌표 
-        level: 1 // 지도의 확대 레벨 
-    }; 
-
-var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-// 커피숍 마커가 표시될 좌표 배열입니다
-var coffeePositions = [ 
-    new daum.maps.LatLng(37.563328,126.93892600000004),
-    new daum.maps.LatLng(37.563429, 126.938021),
-    new daum.maps.LatLng(37.563351, 126.937682),
-    new daum.maps.LatLng(37.5645708, 126.9380347),
-    new daum.maps.LatLng(37.566133, 126.937195),
-    new daum.maps.LatLng(37.49629291770947, 127.02587362608637),
-    new daum.maps.LatLng(37.49754540521486, 127.02546694890695)                
-];
-
-// 편의점 마커가 표시될 좌표 배열입니다
-var storePositions = [
-    new daum.maps.LatLng(37.497535461505684, 127.02948149502778),
-    new daum.maps.LatLng(37.49671536281186, 127.03020491448352),
-    new daum.maps.LatLng(37.496201943633714, 127.02959405469642),
-    new daum.maps.LatLng(37.49640072567703, 127.02726459882308),
-    new daum.maps.LatLng(37.49640098874988, 127.02609983175294),
-    new daum.maps.LatLng(37.49932849491523, 127.02935780247945),
-    new daum.maps.LatLng(37.49996818951873, 127.02943721562295)
-];
-
-// 주차장 마커가 표시될 좌표 배열입니다
-var carparkPositions = [
-    new daum.maps.LatLng(37.49966168796031, 127.03007039430118),
-    new daum.maps.LatLng(37.499463762912974, 127.0288828824399),
-    new daum.maps.LatLng(37.49896834100913, 127.02833986892401),
-    new daum.maps.LatLng(37.49893267508434, 127.02673400572665),
-    new daum.maps.LatLng(37.49872543597439, 127.02676785815386),
-    new daum.maps.LatLng(37.49813096097184, 127.02591949495914),
-    new daum.maps.LatLng(37.497680616783086, 127.02518427952202)                       
-];    
-
-var markerImageSrc = 'resources\images\mapChat\category3.png';  // 마커이미지의 주소입니다. 스프라이트 이미지 입니다
-    coffeeMarkers = [], // 커피숍 마커 객체를 가지고 있을 배열입니다
-    storeMarkers = [], // 편의점 마커 객체를 가지고 있을 배열입니다
-    carparkMarkers = []; // 주차장 마커 객체를 가지고 있을 배열입니다
-
-    
-createCoffeeMarkers(); // 커피숍 마커를 생성하고 커피숍 마커 배열에 추가합니다
-createStoreMarkers(); // 편의점 마커를 생성하고 편의점 마커 배열에 추가합니다
-createCarparkMarkers(); // 주차장 마커를 생성하고 주차장 마커 배열에 추가합니다
-
-changeMarker('coffee'); // 지도에 커피숍 마커가 보이도록 설정합니다    
-
-
-// 마커이미지의 주소와, 크기, 옵션으로 마커 이미지를 생성하여 리턴하는 함수입니다
-function createMarkerImage(src, size, options) {
-    var markerImage = new daum.maps.MarkerImage(src, size, options);
-    return markerImage;            
-}
-
-// 좌표와 마커이미지를 받아 마커를 생성하여 리턴하는 함수입니다
-function createMarker(position, image) {
-    var marker = new daum.maps.Marker({
-        position: position,
-        image: image
-    });
-    
-    return marker;  
-}   
-   
-// 커피숍 마커를 생성하고 커피숍 마커 배열에 추가하는 함수입니다
-function createCoffeeMarkers() {
-    
-    for (var i = 0; i < coffeePositions.length; i++) {  
-        
-        var imageSize = new daum.maps.Size(22, 26),
-            imageOptions = {  
-                spriteOrigin: new daum.maps.Point(10, 0),    
-                spriteSize: new daum.maps.Size(36, 98)  
-            };     
-        
-        // 마커이미지와 마커를 생성합니다
-        var markerImage = createMarkerImage(markerImageSrc, imageSize, imageOptions),    
-            marker = createMarker(coffeePositions[i], markerImage);  
-        
-        // 생성된 마커를 커피숍 마커 배열에 추가합니다
-        coffeeMarkers.push(marker);
-    }     
-}
-
-// 커피숍 마커들의 지도 표시 여부를 설정하는 함수입니다
-function setCoffeeMarkers(map) {        
-    for (var i = 0; i < coffeeMarkers.length; i++) {  
-        coffeeMarkers[i].setMap(map);
-    }        
-}
-
-// 편의점 마커를 생성하고 편의점 마커 배열에 추가하는 함수입니다
-function createStoreMarkers() {
-    for (var i = 0; i < storePositions.length; i++) {
-        
-        var imageSize = new daum.maps.Size(22, 26),
-            imageOptions = {   
-                spriteOrigin: new daum.maps.Point(10, 36),    
-                spriteSize: new daum.maps.Size(36, 98)  
-            };       
-     
-        // 마커이미지와 마커를 생성합니다
-        var markerImage = createMarkerImage(markerImageSrc, imageSize, imageOptions),    
-            marker = createMarker(storePositions[i], markerImage);  
-
-        // 생성된 마커를 편의점 마커 배열에 추가합니다
-        storeMarkers.push(marker);    
-    }        
-}
-
-// 편의점 마커들의 지도 표시 여부를 설정하는 함수입니다
-function setStoreMarkers(map) {        
-    for (var i = 0; i < storeMarkers.length; i++) {  
-        storeMarkers[i].setMap(map);
-    }        
-}
-
-// 주차장 마커를 생성하고 주차장 마커 배열에 추가하는 함수입니다
-function createCarparkMarkers() {
-    for (var i = 0; i < carparkPositions.length; i++) {
-        
-        var imageSize = new daum.maps.Size(22, 26),
-            imageOptions = {   
-                spriteOrigin: new daum.maps.Point(10, 72),    
-                spriteSize: new daum.maps.Size(36, 98)  
-            };       
-     
-        // 마커이미지와 마커를 생성합니다
-        var markerImage = createMarkerImage(markerImageSrc, imageSize, imageOptions),    
-            marker = createMarker(carparkPositions[i], markerImage);  
-
-        // 생성된 마커를 주차장 마커 배열에 추가합니다
-        carparkMarkers.push(marker);        
-    }                
-}
-
-// 주차장 마커들의 지도 표시 여부를 설정하는 함수입니다
-function setCarparkMarkers(map) {        
-    for (var i = 0; i < carparkMarkers.length; i++) {  
-        carparkMarkers[i].setMap(map);
-    }        
-}
-
-// 카테고리를 클릭했을 때 type에 따라 카테고리의 스타일과 지도에 표시되는 마커를 변경합니다
-function changeMarker(type){
-    
-    var coffeeMenu = document.getElementById('coffeeMenu');
-    var storeMenu = document.getElementById('storeMenu');
-    var carparkMenu = document.getElementById('carparkMenu');
-    
-    // 커피숍 카테고리가 클릭됐을 때
-    if (type === 'coffee') {
-    
-        // 커피숍 카테고리를 선택된 스타일로 변경하고
-        coffeeMenu.className = 'menu_selected';
-        
-        // 편의점과 주차장 카테고리는 선택되지 않은 스타일로 바꿉니다
-        storeMenu.className = '';
-        carparkMenu.className = '';
-        
-        // 커피숍 마커들만 지도에 표시하도록 설정합니다
-        setCoffeeMarkers(map);
-        setStoreMarkers(null);
-        setCarparkMarkers(null);
-        
-    } else if (type === 'store') { // 편의점 카테고리가 클릭됐을 때
-    
-        // 편의점 카테고리를 선택된 스타일로 변경하고
-        coffeeMenu.className = '';
-        storeMenu.className = 'menu_selected';
-        carparkMenu.className = '';
-        
-        // 편의점 마커들만 지도에 표시하도록 설정합니다
-        setCoffeeMarkers(null);
-        setStoreMarkers(map);
-        setCarparkMarkers(null);
-        
-    } else if (type === 'carpark') { // 주차장 카테고리가 클릭됐을 때
-     
-        // 주차장 카테고리를 선택된 스타일로 변경하고
-        coffeeMenu.className = '';
-        storeMenu.className = '';
-        carparkMenu.className = 'menu_selected';
-        
-        // 주차장 마커들만 지도에 표시하도록 설정합니다
-        setCoffeeMarkers(null);
-        setStoreMarkers(null);
-        setCarparkMarkers(map);  
-    }    
-} 
-
-// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
-if (navigator.geolocation) {
-    
-    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-    navigator.geolocation.getCurrentPosition(function(position) {
-        
-        var lat = position.coords.latitude, // 위도
-            lon = position.coords.longitude; // 경도
-        
-        //LatLng(lat,lon)으로 고치기
-        var locPosition = new daum.maps.LatLng(lat,lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-            message = '<div style="padding:5px;">나는 지금 여기!</div>'; // 인포윈도우에 표시될 내용입니다
-        
-        // 마커와 인포윈도우를 표시합니다
-        displayMarker(locPosition, message);
-            
-      });
-    
-} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-    
-    var locPosition = new daum.maps.LatLng(37.565757, 126.938541),    
-        message = '위치를 확인할 수 없어요..:('
-        
-    displayMarker(locPosition, message);
-}
-
-// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-function displayMarker(locPosition, message) {
-
-    // 마커를 생성합니다
-    var marker = new daum.maps.Marker({  
-        map: map, 
-        position: locPosition
-    }); 
-    
-    var iwContent = message, // 인포윈도우에 표시할 내용
-        iwRemoveable = true;
-
-    // 인포윈도우를 생성합니다
-    var infowindow = new daum.maps.InfoWindow({
-        content : iwContent,
-        removable : iwRemoveable
-    });
-    
-    // 인포윈도우를 마커위에 표시합니다 
-    infowindow.open(map, marker);
-    
-    // 지도 중심좌표를 접속위치로 변경합니다
-   // map.setCenter(locPosition);      
-}
-</script>
-<div id="sb_chat"></div>
-        <script src="vendors\SendBird.min.js"></script>
-        <script src="vendors\liveChat.SendBird.js"></script>
-        <script>liveChat.start('9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23');</script>
-        <script src="vendors\SendBird.min.js"></script>
-<script>
-  var appId = '9DA1B1F4-0BE6-4DA8-82C5-2E81DAB56F23';
-  var channelUrl = 'sendbird_open_channel_1_5b0336cc55abf6d3464e1d2a263a8e343d3b2b42'; // channel: text_chat_test
-  liveChat.start(appId, channelUrl);
-</script>
 </body>
 </html>

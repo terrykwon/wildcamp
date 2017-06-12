@@ -31,24 +31,48 @@
     <link href="resources/css/carousel.css" rel="stylesheet">
 
     <style>
+
+    @import url(http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb);
+
     body {
-      font-family: "Nanum Gothic", sans-serif;
+      font-family: 'NanumGothic', '나눔고딕','NanumGothicWeb', '맑은 고딕', 'Malgun Gothic', san-serif;
     }
 
      #but {
        background-color: #41A86E;
        border-color: #587F69;
      }
+
+     <!--
+     #bg1 {
+        width: auto;
+        height: 500px;
+        background-image: url(resources/images/index/c51_edit.jpg);
+        background-position: 82% 85%;
+        background-size: cover;
+      }
+
+      #bg2 {
+         width: auto;
+         height: 500px;
+         background-image: url(resources/images/index/c36_edit.jpg);
+         background-position: 82% 40%;
+         background-size: cover;
+       }
+
     </style>
   </head>
 
   <body>
 
     <!-- NAVBAR ================================================== (시작)-->
-    <div class="navbar-wrapper" style="margin-top: 0px;">
+    <!--<div class="navbar-wrapper" style="margin-top: 0px;">
+      <div class="container" style="padding: 0px; width: 100%;">-->
+
+    <div class="navbar-wrapper" >
       <div class="container">
 
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top"  style="max-width: 100%">
           <div class="container-fluid">
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -57,18 +81,16 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">
+              <a class="navbar-brand" href="#" style="padding-top: 10px;">
                 <img alt="Brand" src="resources/images/index/logo.png" style="width:70px">
               </a>
             </div>
             <!-- ===========================(각 해당파트에 active 지정해주세요)-->
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active" style="font-weight:bold"><a href="picture-wall.html">뉴스피드</a></li>
-                <li><a href="animal-profile.html">Y생태계</a></li>
-                <li><a href="mapApi.html">Y지도</a></li>
-                <li><a href="animalencyclopedia.html">동물백과사전</a></li>
-                <li><a href="donate.html">기부하기</a></li>
+                <li class="active" style="font-weight:bold"><a href="picture-wall.php">뉴스피드</a></li>
+                <li><a href="animal-profile.php">Y생태계</a></li>
+                <li><a href="mapChat.html">Y지도</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -93,24 +115,24 @@
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
-
       </ol>
+
       <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="resources/images/index/c51_edited.jpg" alt="First slide">
+        <div id = "bg1" class="item active">
+          <!--<img id = "bg" class="first-slide" src="resources/images/index/c51.jpg " alt="First slide">-->
           <div class="container">
-            <div class="carousel-caption" style="text-shadow: 2px 2px #565656" >
+            <div class="carousel-caption" style="text-shadow: 2px 2px #565656; padding-bottom: 100px;" >
             <!-- <div class="carousel-caption" style="color:black; top: 170px;"> -->
               <h1>생생한 뉴스피드</h1>
-              <p>지금 연세대학교 내 생태계에 대한 생생한 정보를 남과 공유해보세요!</p>
+              <p>지금 연세대학교 내 생태계에 대한 생생한 정보를<wbr> 남과 공유해보세요!</p>
               <p><a id="but" class="btn btn-lg btn-primary" href="picture-wall.html" role="button">바로가기</a></p>
             </div>
           </div>
         </div>
-        <div class="item">
-          <img class="second-slide" src="resources/images/index/c36_edited.jpg" alt="Second slide">
+        <div id = "bg2" class="item">
+          <!--<img id = "bg2" class="second-slide" src="resources/images/index/c36.jpg" alt="Second slide">-->
           <div class="container">
-            <div class="carousel-caption" style="text-shadow: 2px 2px #565656">
+            <div class="carousel-caption" style="text-shadow: 2px 2px #565656; padding-bottom: 100px;">
               <h1>등록회원을 위한 서비스</h1>
               <p>회원가입 후, 동물들과 더 가까워질 수 있는 기회를 가져보세요!</p>
               <p><a id="but" class="btn btn-lg btn-primary" href="signup.html" role="button">가입하기</a></p>
@@ -137,22 +159,22 @@
 
       <!-- Three columns of text below the carousel -->
       <div class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="resources/images/index/ycat.png" alt="Generic placeholder image" width="140" height="140">
+        <div class="col-lg-4 col-md-4">
+          <img class="img-circle" src="resources/images/index/ycat.png" alt="Generic placeholder image" width="150" height="140">
           <h2 style="color:rgb(65,168,110)">Y생태계</h2>
-          <p>연세대학교 내에는 어떤 동물들이 있을까요? </br>동물들의 프로필, 다양한 사진을 확인해보세요.</p>
-          <p><a class="btn btn-default" href="animal-profile.html" role="button">바로가기 &raquo;</a></p>
+          <p style="margin-bottom: 20px;">연세대학교 내에는 어떤 동물들이 있을까요? </br>동물들의 프로필, 다양한 사진을 <wbr>확인해보세요.</p>
+          <p><a class="btn btn-default" href="animal-profile.php" role="button">바로가기 &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4">
           <img class="img" src="resources/images/index/map.svg" alt="Generic placeholder image" width="140" height="140">
           <h2 style="color:rgb(57,86,204)">Y지도</h2>
-          <p>"고양이 냥이가 주로 서식하는 지역은 어디일까요?"</br>동물들이 자주 출몰하는 지역을 확인해보세요.</p>
+          <p style="margin-bottom: 20px;">"고양이 냥이가 <wbr>주로 서식하는 지역은 어디일까요?"</br>동물들이 자주 출몰하는 지역을 확인해보세요.</p>
           <p><a class="btn btn-default" href="mapApi.html" role="button">바로가기 &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4">
           <img class="img" src="resources/images/index/encyclo.png" alt="Generic placeholder image" width="145" height="145" style="padding-top:5">
           <h2 style="color:rgb(65,168,110)">동물백과사전</h2>
-          <p>"고양이는 어느 계에 속하고, 어떤 먹이를 좋아할까요?" </br>동물에 관한 모든 정보를 알아보세요.</p>
+          <p style="margin-bottom: 20px;">"고양이는 어느 계에 속하고, <wbr>어떤 먹이를 좋아할까요?" </br>동물에 관한 모든 정보를 알아보세요.</p>
           <p><a class="btn btn-default" href="animalencylocpedia.html" role="button">바로가기 &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
@@ -163,7 +185,7 @@
       <hr class="featurette-divider">
 
       <div class="row featurette">
-        <div class="col-md-7">
+        <div class="col-md-7" style="background-color:light grey;">
           <h2 class="featurette-heading">뉴스피드 <span class="text-muted" style="font-size: 30px">모든 DB의 집약체</span></h2>
           <p class="lead">Yonsei WILDCAMP에 원하는 자료를 업데이트할 수 있습니다. 동물들의 사진과 현재위치, 사람들의 코멘트가 이에 해당됩니다. 또한, 이 자료들을 뉴스피드 형식으로 확인할 수 있습니다.</p>
         </div>
@@ -217,12 +239,15 @@
       <footer>
         <p class="pull-right"><a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a></p>
         <p>&copy; 2017 Team WILDCAMP (13조) &middot; <a href="login.html">로그인</a> &middot; <a href="signup.html">가입하기</a>
-        </br>본 사이트는 2017-1 인터넷 프로그래밍 팀 프로젝트의 일환으로 만들어졌습니다.</p>
+        </br>본 사이트는 2017-1 인터넷 프로그래밍 팀 프로젝트의 일환으로 만들어졌습니다.
+        </br>본 사이트의 고양이 사진은 페이스북 연양심 페이지에서 가져왔습니다.</p>
+
       </footer>
       <!-- Footer ================================================== (끝)-->
 
 
-    </div><!-- /.container -->
+  </div>
+  <!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
