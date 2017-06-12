@@ -5,6 +5,7 @@
     <link rel="icon" href="resources/images/index/icon.png">
     <title>Y지도</title>
     <link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="resources/css/carousel.css" rel="stylesheet">
     <style>
     @import url(http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb);
@@ -13,7 +14,7 @@
     }
     #mapwrap{position:relative;overflow:hidden;}
     .category, .category *{margin:0;padding:0;color:#000;}
-    .category {position:absolute;overflow:hidden;top:10px;left:10px;width:300px;height:120px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:30px;text-align:center;background-color:#fff;}
+    .category {position:absolute;overflow:hidden;top:10px;left:10px;width:300px;height:120px;z-index:10;border:1px solid black;font-family:'Malgun Gothic','맑은 고딕',sans-serif;font-size:25px;text-align:center;background-color:#fff;}
     .category .menu_selected {background:#2D754D
     ;color:#fff;border-left:1px solid #915B2F;border-right:1px solid #915B2F;margin:0 -1px;}
     .category li{list-style:none;float:left;width:100px;height:120px;padding-top:10px;cursor:pointer;}
@@ -35,7 +36,7 @@
     .header{
         margin:30px auto;
         text-align:center;
-        font-size:30px;
+        font-size:20px;
         width:50%;
         color:#FFF;
         padding:10px;
@@ -77,14 +78,14 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="index.html" style="padding-top: 10px;">
-              <img alt="Brand" src="resources/images/index/logo.png" style="width:70px">
+              <img alt="Brand" src="resources/images/index/logo.gif" style="width:70px">
             </a>
           </div>
           <!-- ===========================(각 해당파트에 active 지정해주세요)-->
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li style="font-weight:bold"><a href="picture-wall.php">뉴스피드</a></li>
-              <li><a href="animal-profile.php">Y생태계</a></li>
+              <li><a href="animal-profile.html">Y생태계</a></li>
               <li class="active"><a href="mapChat.html">Y지도</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -139,21 +140,29 @@
     <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=e53398c3abe7918dcc46537d6a06ce49"></script>
     <script>
     var mapContainer = document.getElementById('map'),
-    mapOption = {
-            center: new daum.maps.LatLng(37.563799, 126.937749),
-            level: 2
+    mapOption = { 
+            center: new daum.maps.LatLng(37.563799, 126.937749), 
+            level: 2 
         };
 
-    var map = new daum.maps.Map(mapContainer, mapOption);
+    var map = new daum.maps.Map(mapContainer, mapOption); 
 
     var catPositions = [
         new daum.maps.LatLng(37.563328,126.93892600000004),
         new daum.maps.LatLng(37.563429, 126.938021),
         new daum.maps.LatLng(37.563351, 126.937682),
-        new daum.maps.LatLng(37.5645708, 126.9380347),
-        new daum.maps.LatLng(37.566133, 126.937195),
-        new daum.maps.LatLng(37.49629291770947, 127.02587362608637),
-        new daum.maps.LatLng(37.49754540521486, 127.02546694890695)
+        new daum.maps.LatLng(37.563462, 126.937370),
+        new daum.maps.LatLng(37.563522, 126.937692),
+        new daum.maps.LatLng(37.563284, 126.937778),
+        new daum.maps.LatLng(37.563199, 126.936963),
+        new daum.maps.LatLng(37.562944, 126.937381),
+        new daum.maps.LatLng(37.561753, 126.938615),
+        new daum.maps.LatLng(37.563889, 126.937317),
+        new daum.maps.LatLng(37.563462, 126.937370),
+        new daum.maps.LatLng(37.562562, 126.937467),
+        new daum.maps.LatLng(37.562817, 126.937907),
+        new daum.maps.LatLng(37.564246, 126.938379),
+        new daum.maps.LatLng(37.565679, 126.938855)
     ];
 
     var chipmunkPositions = [
@@ -176,17 +185,17 @@
         new daum.maps.LatLng(37.497680616783086, 127.02518427952202)
     ];
 
-    var markerImageSrc = 'resources\\images\\mapChat\\category.png';
-        catMarkers = [],
-        chipmunkMarkers = [],
-        magpieMarkers = [];
+    var markerImageSrc = 'resources\\images\\mapChat\\category.png';  
+        catMarkers = [], 
+        chipmunkMarkers = [], 
+        magpieMarkers = []; 
 
 
-    createcatMarkers();
-    createchipmunkMarkers();
-    createmagpieMarkers();
+    createcatMarkers(); 
+    createchipmunkMarkers(); 
+    createmagpieMarkers(); 
 
-    // changeMarker('cat');
+    changeMarker('cat'); 
 
 
 
@@ -293,7 +302,7 @@
 
             catMenu.className = 'menu_selected';
 
-
+  
             chipmunkMenu.className = '';
             magpieMenu.className = '';
 
@@ -301,7 +310,7 @@
             setchipmunkMarkers(null);
             setmagpieMarkers(null);
 
-        } else if (type === 'store') {
+        } else if (type === 'store') { 
 
             catMenu.className = '';
             chipmunkMenu.className = 'menu_selected';
@@ -311,7 +320,7 @@
             setchipmunkMarkers(map);
             setmagpieMarkers(null);
 
-        } else if (type === 'carpark') {
+        } else if (type === 'carpark') { 
 
 
             catMenu.className = '';
@@ -330,16 +339,16 @@
         navigator.geolocation.getCurrentPosition(function(position) {
 
             var lat = position.coords.latitude,
-                lon = position.coords.longitude;
+                lon = position.coords.longitude; 
 
 
-            var locPosition = new daum.maps.LatLng(lat, lon),
-                message = '<div style="padding:5px;">나는 지금 여기!</div>';
+            var locPosition = new daum.maps.LatLng(37.563593, 126.936950), 
+                message = '<div style="padding:5px;">나는 지금 여기!</div>'; 
             displayMarker(locPosition, message);
 
           });
 
-    } else {
+    } else { 
 
         var locPosition = new daum.maps.LatLng(37.565757, 126.938541),
             message = '위치를 확인할 수 없어요..:('

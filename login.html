@@ -1,5 +1,3 @@
-<!doctype html>
-
 <html lang="en">
     
 <head>
@@ -7,10 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Logon</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="연세대 내 생태계 보호">
+    <meta name="author" content="Team WILDCAMP">
+    <link rel="icon" href="resources/images/index/icon.png">
+    <!-- Bootstrap core CSS -->
+    <link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   
 <style>
 body{
     background-image:url("resources\\images\\login\\cats.jpg");
+    font-family: "Nanum Gothic", sans-serif;
 
 }
 .panel-login{
@@ -106,6 +113,47 @@ input[type=submit]{
 </head>
 
 <body>
+<!-- NAVBAR ================================================== (시작)-->
+    <div class="navbar-wrapper" style="margin-top: 0px;">
+      <div class="container">
+
+        <nav class="navbar navbar-default navbar-static-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <img alt="Brand" src="resources/images/index/logo.png" style="width:70px">
+              </a>
+            </div>
+            <!-- ===========================(각 해당파트에 active 지정해주세요)-->
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active" style="font-weight:bold"><a href="picture-wall.html">뉴스피드</a></li>
+                <li><a href="mapApi.html">Y지도</a></li>
+                <li><a href="animalencyclopedia.html">동물백과사전</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> 회원서비스</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="login.html">로그인</a></li>
+                    <li><a href="signup.html">회원가입</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+  <!-- NAVBAR ======================================================== (끝)-->
+
 <div class="panel-login">
 <div class="header">
     <div class="user">
@@ -113,12 +161,12 @@ input[type=submit]{
     </div>
         <span class="text">login</span>
 </div>
-<form method="POST" action="#" onsubmit="return chkID()">
+<form method="POST" action="login.php" enctype="multipart/form-data" onsubmit="return chkID()">
         <input type="text" id="id" name="id" class="ID" placeholder="ID" autofocus required />
         <input type="password" id="pw" name="password" class="password" placeholder="password" required/>
         <input type="submit" name="valider" class="valider" value="Log In" id="login" onclick="chk();"/>
         <input type="submit" name="signup" class="valider" value="Sign up" id="signup"/>
-        <p href="/password" style="font-size:11px; color:#91908f" id="password">비밀번호를 잃어버리셨나요?</p>
+        <p href="/password" style="font-size:11px; color:#91908f" id="password">비밀번호를 잃어버리셨나요?<a href="mailto: wildcamp@gmail.com">wildcamp@gmail.com</a></p>
 </form>
 </div>
  
