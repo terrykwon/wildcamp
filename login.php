@@ -43,6 +43,11 @@
     if ($loggedin) {
         echo("logged in");
         // header("Location: http://$servername/wildcamp/picture-wall.php");
+
+        session_start();
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $myusername;
+
         header("Location: picture-wall.php");
 
     } else {

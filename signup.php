@@ -22,7 +22,7 @@
 
     	session_start();
         $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $username;
+        $_SESSION['username'] = $user_id;
 
 	    header("Location: http://$servername/wildcamp/picture-wall.php");
 
