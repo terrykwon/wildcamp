@@ -1,19 +1,13 @@
 <?php
-$myusername=$_POST['id']; 
-$mypassword=$_POST['password'];
 
-echo($myusername);
-echo($mypassword);
-
-
-$hostname = "www.moonpark.biz"; // Variables loosely typed
+<!-- $hostname = "www.moonpark.biz"; // Variables loosely typed
 $username = "wildcamp"; // Default by XAMPP
 $password = "Wildcamp1234!";
 $driverOptions = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 
 try {
     $conn = new PDO('mysql:host=www.moonpark.biz;dbname=wildcamp;charset=utf8mb4', $username, $password, $driverOptions);
-    $sql = "SELECT * FROM USER";
+    $sql = "SELECT * FROM ANIMAL where species = 'cat'";
     $stmt = $conn->query($sql);
     $rows = $stmt->fetchAll();
 
@@ -38,7 +32,7 @@ try {
     echo $sql . "<br>" . $e->getMessage();
 }
 
-$conn = null;
+$conn = null; -->
 
 ?>
 
