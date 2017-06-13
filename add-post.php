@@ -55,7 +55,16 @@
 
     $description = $_POST["description"];
     $species = $_POST["species"];
-    $animal_id =  $_POST["animal_id"];
+    $animal_id_string = $_POST["animal_id"];
+
+    // Restrict AID to 3 types only.
+    if ($animal_id_string == "cat") {
+        $animal_id = 1;
+    } else if ($animal_id_string == "squirrel") {
+        $animal_id = 2;
+    } else {
+        $animal_id = 3;
+    }
 
     $loc = explode(',', $_POST["location"]);
     $lat = $loc[0];
@@ -78,15 +87,22 @@
         $rows = $stmt->fetch();
         $new_id = $rows['post_id'] + 1;
 
+        echo($rows['post_id']);
+        echo($new_id);
+
         $sql = "INSERT INTO POST (post_id, poster, photo_uri, description, animal_id, date_stamp, like_count, species, caption, tag1, tag2, tag3)
-        VALUES (('$new_id'), 'user', ('$target_file'), ('$description'), ('$animal_id'), now(), 0, ('$species'), 'caption', 'tag1', 'tag2', 'tag3')";
+        VALUES ($new_id, 'user', ('$target_file'), ('$description'), ('$animal_id'), now(), 0, ('$species'), 'caption', 'tag1', 'tag2', 'tag3')";
         // use exec() because no results are returned
         $conn->exec($sql);
         
 
-        $sql2 = "INSERT INTO ANIMAL (last_lat, last_lon, rep_photo, nickname, popularity, species)
-        VALUES (('$lat'), ('$lon'), ('$target_file'), 'nickname', 0, ('$species'))";
-        $conn->exec($sql2);
+        $sql2 = "INSERT INTO ANIMAL (AID, last_lat, last_lon, rep_photo, nickname, popularity, species)
+        VALUES (('$animal_id'), ('$lat'), ('$lon'), ('$target_file'), 'nickname', 0, ('$species'))";
+        try {
+            $conn->exec($sql2);
+        } catch(PDOException $e) {
+            $sql3 = "UPDATE ANIMAL SET last_lat=('$lat'), last_lon=('$lon') WHERE AID=('$animal_id')";
+        }
 
         echo "New record created successfully";
 
