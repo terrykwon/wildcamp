@@ -95,7 +95,7 @@
     	// 	window.location.replace("animal-profile.php");
     	// });
 
-    	window.location = "animal-profile.php?AID=<?php echo $row['post_id'];?>";
+    	window.location = "animal-profile.php?AID=<?php echo $row['animal_id'];?>";
 
     });
 </script>
