@@ -179,7 +179,7 @@ $conn = null;
     <script>
     var mapContainer = document.getElementById('map'),
     mapOption = { 
-            center: new daum.maps.LatLng(37.563799, 126.937749), 
+            center: new daum.maps.LatLng(37.561987, 126.935566), 
             level: 2 
         };
 
@@ -198,9 +198,7 @@ $conn = null;
         new daum.maps.LatLng(37.563889, 126.937317),
         new daum.maps.LatLng(37.563462, 126.937370),
         new daum.maps.LatLng(37.562562, 126.937467),
-        new daum.maps.LatLng(37.562817, 126.937907),
-        new daum.maps.LatLng(37.564246, 126.938379),
-        new daum.maps.LatLng(37.565679, 126.938855)
+        new daum.maps.LatLng(37.561987, 126.935566)
     ];
 
     var chipmunkPositions = [
@@ -380,7 +378,7 @@ $conn = null;
                 lon = position.coords.longitude; 
 
 
-            var locPosition = new daum.maps.LatLng(37.563593, 126.936950), 
+            var locPosition = new daum.maps.LatLng(37.562030, 126.935249), 
                 message = '<div style="padding:5px;">나는 지금 여기!</div>'; 
             displayMarker(locPosition, message);
 
@@ -388,7 +386,7 @@ $conn = null;
 
     } else { 
 
-        var locPosition = new daum.maps.LatLng(37.565757, 126.938541),
+        var locPosition = new daum.maps.LatLng(37.562030, 126.935249),
             message = '위치를 확인할 수 없어요..:('
 
         displayMarker(locPosition, message);
