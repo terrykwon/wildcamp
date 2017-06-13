@@ -13,22 +13,8 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Custom styles for this template -->
     <link href="resources/css/carousel.css" rel="stylesheet">
+
 
     <style>
 
@@ -43,7 +29,6 @@
        border-color: #587F69;
      }
 
-     <!--
      #bg1 {
         width: auto;
         height: 500px;
@@ -66,8 +51,6 @@
   <body>
 
     <!-- NAVBAR ================================================== (시작)-->
-    <!--<div class="navbar-wrapper" style="margin-top: 0px;">
-      <div class="container" style="padding: 0px; width: 100%;">-->
 
     <div class="navbar-wrapper" >
       <div class="container">
@@ -82,13 +65,13 @@
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="index.html" style="padding-top: 10px;">
-                <img alt="Brand" src="resources/images/index/logo.png" style="width:70px">
+                <img alt="Brand" src="resources/images/index/logo.gif" style="width:70px">
               </a>
             </div>
             <!-- ===========================(각 해당파트에 active 지정해주세요)-->
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active" style="font-weight:bold"><a href="picture-wall.php">뉴스피드</a></li>
+                <li style="font-weight:bold"><a href="picture-wall.php">뉴스피드</a></li>
                 <li><a href="animal-profile.php">Y생태계</a></li>
                 <li><a href="mapChat.html">Y지도</a></li>
               </ul>
@@ -125,7 +108,7 @@
             <!-- <div class="carousel-caption" style="color:black; top: 170px;"> -->
               <h1>생생한 뉴스피드</h1>
               <p>지금 연세대학교 내 생태계에 대한 생생한 정보를<wbr> 남과 공유해보세요!</p>
-              <p><a id="but" class="btn btn-lg btn-primary" href="picture-wall.html" role="button">바로가기</a></p>
+              <p><a id="but" class="btn btn-lg btn-primary" href="picture-wall.php" role="button">바로가기</a></p>
             </div>
           </div>
         </div>
@@ -169,13 +152,13 @@
           <img class="img" src="resources/images/index/map.svg" alt="Generic placeholder image" width="140" height="140">
           <h2 style="color:rgb(57,86,204)">Y지도</h2>
           <p style="margin-bottom: 20px;">"고양이 냥이가 <wbr>주로 서식하는 지역은 어디일까요?"</br>동물들이 자주 출몰하는 지역을 확인해보세요.</p>
-          <p><a class="btn btn-default" href="mapApi.html" role="button">바로가기 &raquo;</a></p>
+          <p><a class="btn btn-default" href="mapChat.html" role="button">바로가기 &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4 col-md-4">
           <img class="img" src="resources/images/index/encyclo.png" alt="Generic placeholder image" width="145" height="145" style="padding-top:5">
           <h2 style="color:rgb(65,168,110)">동물백과사전</h2>
           <p style="margin-bottom: 20px;">"고양이는 어느 계에 속하고, <wbr>어떤 먹이를 좋아할까요?" </br>동물에 관한 모든 정보를 알아보세요.</p>
-          <p><a class="btn btn-default" href="animalencylocpedia.html" role="button">바로가기 &raquo;</a></p>
+          <p><a class="btn btn-default" href="animalencyclopedia.html" role="button">바로가기 &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
@@ -186,11 +169,11 @@
 
       <div class="row featurette">
         <div class="col-md-7" style="background-color:light grey;">
-          <h2 class="featurette-heading">뉴스피드 <span class="text-muted" style="font-size: 30px">모든 DB의 집약체</span></h2>
-          <p class="lead">Yonsei WILDCAMP에 원하는 자료를 업데이트할 수 있습니다. 동물들의 사진과 현재위치, 사람들의 코멘트가 이에 해당됩니다. 또한, 이 자료들을 뉴스피드 형식으로 확인할 수 있습니다.</p>
+          <h2 class="featurette-heading">뉴스피드 <span class="text-muted" style="font-size: 30px">DB의 입력공간</span></h2>
+          <p class="lead">Yonsei WILDCAMP에 원하는 자료를 업데이트할 수 있습니다. 동물들의 사진과 현재위치, 사람들의 코멘트가 이에 해당됩니다. 또한, Microsoft Azure Computer Vision API을 이용해, 사진을 자동으로 인식하기도 합니다.</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" src="resources/images/index/temp.png" alt="Generic placeholder image">
+          <img style="width:400px" class="featurette-image img-responsive center-block" src="resources/images/index/sc1.png" alt="Generic placeholder image">
         </div>
       </div>
 
@@ -198,11 +181,11 @@
 
       <div class="row featurette">
         <div class="col-md-7 col-md-push-5">
-          <h2 class="featurette-heading">Y생태계 <span class="text-muted" style="font-size: 30px">API 사용</span></h2>
+          <h2 class="featurette-heading">Y생태계 <span class="text-muted" style="font-size: 30px">모든 DB의 집약체</span></h2>
           <p class="lead">연세대 내 동물들의 프로필을 이곳에서 확인할 수 있습니다. 개체별로 각 페이지가 만들어지며, 그에 대한 사진DB, 위치DB, 사람들의 코멘트가 보여집니다.</p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" src="resources/images/index/temp.png" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block" src="resources/images/index/sc2.png" alt="Generic placeholder image">
         </div>
       </div>
 
@@ -210,11 +193,11 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">Y지도 <span class="text-muted" style="font-size: 30px">다음 Map API 사용</span></h2>
-          <p class="lead">뉴스피드를 통해 올린 동물들의 위치를 이곳에서 한 눈에 확인할 수 있습니다. 각 동물(고양이, 청솔모)를 다른 아이콘을 이용해서 지도 위에 행적을 나타냅니다. 지도는 연세대학교와 그 근처로 한정됩니다.</p>
+          <h2 class="featurette-heading">Y지도 <span class="text-muted" style="font-size: 30px">Daum Map 사용</span></h2>
+          <p class="lead">동물들의 행적를 확인하고, Sendbird위젯을 통해 익명으로 채팅할 수도 있습니다. 각 동물을 다른 아이콘을 이용해서 지도 위에 행적을 나타냅니다. 지도는 연세대학교와 그 근처로 한정됩니다.</p>
         </div>
         <div class="col-md-5">
-          <img class="featurette-image img-responsive center-block" src="resources/images/index/temp.png" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block" src="resources/images/index/sc3.png" alt="Generic placeholder image">
         </div>
       </div>
 
@@ -226,16 +209,16 @@
           <p class="lead">연세대 내 동물들 개체의 정보가 실립니다. 이곳에서 그 동물에 대한 일반적인 정보가 게재됩니다.</p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-          <img class="featurette-image img-responsive center-block" src="resources/images/index/temp.png" alt="Generic placeholder image">
+          <img class="featurette-image img-responsive center-block" src="resources/images/index/sc4.png" alt="Generic placeholder image" style="border:1px">
         </div>
       </div>
 
-      <hr class="featurette-divider">
 
       <!-- /END THE FEATURETTES -->
 
 
       <!-- Footer ================================================== (시작)-->
+      <hr class="featurette-divider">
       <footer>
         <p class="pull-right"><a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a></p>
         <p>&copy; 2017 Team WILDCAMP (13조) &middot; <a href="login.html">로그인</a> &middot; <a href="signup.html">가입하기</a>

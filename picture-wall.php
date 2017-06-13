@@ -134,6 +134,16 @@
 			include 'post.php';
 		?>
 
+    <!-- Footer ================================================== (시작)-->
+    <hr>
+    <footer>
+      <p class="pull-right"><a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a></p>
+      <p>&copy; 2017 Team WILDCAMP (13조) &middot; <a href="login.html">로그인</a> &middot; <a href="signup.html">가입하기</a>
+      </br>본 사이트는 2017-1 인터넷 프로그래밍 팀 프로젝트의 일환으로 만들어졌습니다.</p>
+
+    </footer>
+    <!-- Footer ================================================== (끝)-->
+
 	</div>
 
   <!-- Bootstrap core JavaScript

@@ -1,6 +1,6 @@
 <?php
 	$user_id = $_POST['id'];
-	$password = $_POST['password'];
+	$password2 = $_POST['password'];
 	$name = $_POST['name'];
 	$phone_no = $_POST['phone'];
 
@@ -14,7 +14,7 @@
 	    // set the PDO error mode to exception
 	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	    $sql = "INSERT INTO USER (user_id, password, name, phone_no)
-	    VALUES (('$user_id'), ('$password'), ('$name'), ('$phone_no'))";
+	    VALUES (('$user_id'), ('$password2'), ('$name'), ('$phone_no'))";
 	    // use exec() because no results are returned
 	    $conn->exec($sql);
 

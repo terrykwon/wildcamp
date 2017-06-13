@@ -1,28 +1,52 @@
 <?php
- 
-    include("config.php");
-    session_start();   //세션시작
- 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
- 
-    $myusername=addslashes($_POST['id']); 
-    $mypassword=addslashes($_POST['password']); 
- 
-    $sql="SELECT user_id FROM USER WHERE name='$myusername' and password='$mypassword'";
-    $result=mysql_query($sql);
- 
-    $count=mysql_num_rows($result);
- 
-    // If result matched $myusername and $mypassword, table row must be 1 row
-    if($count==1)
-    {
-        session_register("myusername");
-        $_SESSION['login_user']=$myusername;
- 
-        header("location: index.html");
+    $myusername=$_POST['id']; 
+    $mypassword=$_POST['password'];
+
+    echo($myusername);
+    echo($mypassword);
+
+
+    $hostname = "www.moonpark.biz"; // Variables loosely typed
+    $username = "wildcamp"; // Default by XAMPP
+    $password = "Wildcamp1234!";
+    $driverOptions = array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+
+    try {
+        $db = new PDO('mysql:host=www.moonpark.biz;dbname=wildcamp;charset=utf8mb4', $username, $password, $driverOptions);
+        $sql = "SELECT * FROM USER";
+        $stmt = $db->query($sql);
+        $rows = $stmt->fetchAll();
+
+     
+        // $sql="SELECT user_id FROM USER WHERE name='$myusername' and password='$mypassword'";
+        // $result=mysql_query($sql);
+     
+        $count=sizeof($rows);
+        echo($count);
+        $loggedin = false;
+
+        foreach($rows as $row) {
+            echo($row['user_id']." ".$row['password']);
+
+            if ($row['user_id'] == $myusername && $row['password'] == $mypassword) {
+                
+                $loggedin = true;
+                break;
+            }
+        }
+    } catch(PDOException $e) {
+        echo $sql . "<br>" . $e->getMessage();
     }
-    else 
-    {
-        $error="아이디와 비밀번호를 확인해주세요.";
+
+    $db = null;
+
+    if ($loggedin) {
+        echo("logged in");
+        // header("Location: http://$servername/wildcamp/picture-wall.php");
+        header("Location: picture-wall.php");
+
+    } else {
+        echo("not logged in");
     }
-}
+
+?>
