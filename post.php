@@ -40,49 +40,49 @@
 </div>
 
 <script type="text/javascript">
-    // $(function() {
-    //     var params = {
-    //         // Request parameters
-    //         "visualFeatures": "Categories,Description,Color",
-    //         "details": "",
-    //         "language": "en",
-    //     };
+    $(function() {
+        var params = {
+            // Request parameters
+            "visualFeatures": "Categories,Description,Color",
+            "details": "",
+            "language": "en",
+        };
 
-    //     $.ajax({
-    //         url: "https://southeastasia.api.cognitive.microsoft.com/vision/v1.0/analyze?" + $.param(params),
+        $.ajax({
+            url: "https://southeastasia.api.cognitive.microsoft.com/vision/v1.0/analyze?" + $.param(params),
 
-    //         beforeSend: function(xhrObj){
-    //             // Request headers
-    //             xhrObj.setRequestHeader("Content-Type","application/json");
+            beforeSend: function(xhrObj){
+                // Request headers
+                xhrObj.setRequestHeader("Content-Type","application/json");
 
-    //             // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
-    //             xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "5bcd5f1600194ff0b245ba42eb924a99");
-    //         },
+                // NOTE: Replace the "Ocp-Apim-Subscription-Key" value with a valid subscription key.
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "5bcd5f1600194ff0b245ba42eb924a99");
+            },
 
-    //         type: "POST",
+            type: "POST",
 
-    //         // Request body
-    //         // data: '{"url": "<?php echo $row[DB_PHOTO_URL];?>"}',
-    //         data: '{"url": "http://moonpark.biz/wildcamp/<?php echo $row[DB_PHOTO_URL];?>"}',
-    //     })
+            // Request body
+            // data: '{"url": "<?php echo $row[DB_PHOTO_URL];?>"}',
+            data: '{"url": "http://moonpark.biz/wildcamp/<?php echo $row[DB_PHOTO_URL];?>"}',
+        })
 
-    //     .done(function(data) {
-    //         // Show formatted JSON on webpage.
-    //         desc = data.description;
-    //         $('#ai-<?php echo $row['post_id'];?>').find('#recog-desc').html("\"" + desc.captions[0].text + "\"");
-    //         $('#ai-<?php echo $row['post_id'];?>').find('#recog-tag1').html(desc.tags[0]);
-    //         $('#ai-<?php echo $row['post_id'];?>').find('#recog-tag2').html(desc.tags[1]);
-    //         $('#ai-<?php echo $row['post_id'];?>').find('#recog-tag3').html(desc.tags[2]);
+        .done(function(data) {
+            // Show formatted JSON on webpage.
+            desc = data.description;
+            $('#ai-<?php echo $row['post_id'];?>').find('#recog-desc').html("\"" + desc.captions[0].text + "\"");
+            $('#ai-<?php echo $row['post_id'];?>').find('#recog-tag1').html(desc.tags[0]);
+            $('#ai-<?php echo $row['post_id'];?>').find('#recog-tag2').html(desc.tags[1]);
+            $('#ai-<?php echo $row['post_id'];?>').find('#recog-tag3').html(desc.tags[2]);
 
-    //     })
+        })
 
-    //     .fail(function(jqXHR, textStatus, errorThrown) {
-    //         // Display error message.
-    //         var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
-    //         errorString += (jqXHR.responseText === "") ? "" : jQuery.parseJSON(jqXHR.responseText).message;
-    //         alert(errorString);
-    //     });
-    // });
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            // Display error message.
+            var errorString = (errorThrown === "") ? "Error. " : errorThrown + " (" + jqXHR.status + "): ";
+            errorString += (jqXHR.responseText === "") ? "" : jQuery.parseJSON(jqXHR.responseText).message;
+            alert(errorString);
+        });
+    });
 
     $('#img-<?php echo $row['post_id'];?>').click(function() {
     	// alert('img-<?php echo $row['post_id'];?>', "clicked.");
