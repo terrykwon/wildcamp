@@ -72,10 +72,17 @@
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "INSERT INTO POST (poster, photo_uri, description, animal_id, date_stamp, like_count, species, caption, tag1, tag2, tag3)
-        VALUES ('user', ('$target_file'), ('$description'), ('$animal_id'), now(), 0, ('$species'), 'caption', 'tag1', 'tag2', 'tag3')";
+
+        $sql0 = "SELECT post_id FROM POST ORDER BY post_id DESC";
+        $stmt = $conn->query($sql0);
+        $rows = $stmt->fetch();
+        $new_id = $rows['post_id'] + 1;
+
+        $sql = "INSERT INTO POST (post_id, poster, photo_uri, description, animal_id, date_stamp, like_count, species, caption, tag1, tag2, tag3)
+        VALUES (('$new_id'), 'user', ('$target_file'), ('$description'), ('$animal_id'), now(), 0, ('$species'), 'caption', 'tag1', 'tag2', 'tag3')";
         // use exec() because no results are returned
         $conn->exec($sql);
+        
 
         $sql2 = "INSERT INTO ANIMAL (last_lat, last_lon, rep_photo, nickname, popularity, species)
         VALUES (('$lat'), ('$lon'), ('$target_file'), 'nickname', 0, ('$species'))";
